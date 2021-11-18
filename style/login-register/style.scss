@@ -1,0 +1,125 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0E050F !important;
+    p {
+        font-size: 18px;
+    }
+}
+
+.btn-primary {
+    font-weight: 600 !important;
+    font-size: 24px !important;
+    background: linear-gradient(94.34deg, #FF5757 -17.28%, #FF57BC 18.09%, #C957FF 56.17%, #5900EB 110.58%);
+    border-radius: 11px;
+    border: none !important;
+    height: 53px;
+    &:hover {
+        background: linear-gradient(267.38deg, #FF5757 -15.95%, #FF57BC 18%, #C957FF 54.57%, #5900EB 106.81%);
+    }
+}
+
+.main {
+    margin: 100px 0;
+}
+
+.col {
+    padding: 0 !important;
+}
+
+.left {
+    img {
+        max-width: 416px;
+    }
+}
+
+.right {
+    background-color: #1D1B1F;
+    // padding: 55px !important;
+    border-radius: 30px;
+    // max-width: 552px !important;
+    // max-width: 640px !important;
+    p {
+        color: #887F96;
+    }
+    h1 {
+        font-size: 36px;
+        font-weight: 600;
+        color: #fff;
+        margin-top: 20px;
+    }
+    .sub-title {
+        margin-bottom: 71px;
+        color: #887F96;
+    }
+    .register-at-login {
+        margin-top: 130px;
+    }
+    .form-control {
+        padding: 16px;
+        background-color: #2A2630;
+        color: #919192;
+        border: none;
+    }
+}
+
+a {
+    color: #919192 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    margin-left: 10px;
+    &:hover {
+        color: #fff;
+    }
+}
+
+// Register
+.register-left {
+    background-color: #1D1B1F;
+    .title {
+        margin: 70px 125px;
+        h1 {
+            font-size: 45px;
+            font-weight: 600;
+            color: #fff;
+        }
+        p {
+            margin-top: 15px;
+            color: #887F96;
+        }
+        .register {
+            display: inline-block;
+            img {
+                max-width: 300px;
+                margin-top: 50px;
+                margin-left: 150px;
+            }
+        }
+        .flower {
+            img {
+                max-width: 80px;
+                margin-top: -140px;
+            }
+        }
+    }
+}
+
+.register-right {
+    margin: auto;
+    form {
+        padding-top: 180px;
+        margin: auto;
+        max-width: 443px;
+        .form-control {
+            padding: 16px;
+            background-color: #2A2630;
+            border: none;
+        }
+        .login-at-register {
+            margin-top: 68px;
+        }
+    }
+    p {
+        margin-top: 15px;
+        color: #887F96;
+    }
+}
