@@ -64,8 +64,6 @@ body p {
   border: none;
 }
 
-
-
 a {
   color: #919192 !important;
   text-decoration: none !important;
@@ -79,7 +77,6 @@ a:hover {
 
 .register-left {
   background-color: #1D1B1F;
-  height: 970px;
 }
 
 .register-left .title {
@@ -126,7 +123,6 @@ a:hover {
   padding: 16px;
   background-color: #2A2630;
   border: none;
-  color: #919192;
 }
 
 .register-right form .login-at-register {
