@@ -75,9 +75,6 @@ a {
 // Register
 .register-left {
     background-color: #1D1B1F;
-    .btn-primary {
-        margin-bottom: 70px;
-    }
     .title {
         margin: 70px 125px;
         h1 {
@@ -119,6 +116,12 @@ a {
         }
         .login-at-register {
             margin-top: 68px;
+        }
+        .btn-primary {
+            margin-bottom: 70px !important;
+        }
+        .subtitle-regis {
+            color: #686868;
         }
     }
     p {
