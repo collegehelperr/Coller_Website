@@ -79,6 +79,10 @@ a:hover {
   background-color: #1D1B1F;
 }
 
+.register-left .btn-primary {
+  margin-bottom: 70px;
+}
+
 .register-left .title {
   margin: 70px 125px;
 }
