@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    --color-primary: #fff;
+    --color-secondary: #999999;
+    --color-tri: #9388A2;
+    --color-success: linear-gradient(90.31deg, #FF5757 1.77%, #FF57BC 29.07%, #C957FF 58.47%, #5900EB 100.47%);
+    --color-bgprimary: #0E050F;
+    --color-bgsidebar: #2A2630;
+    --color-bgcardprimary: #1D1B1F;
+    --border-radius-1: 11px;
+    --border-radius-2: 3px;
+}
+
+* {
+    appearance: none !important;
+    outline: none !important;
+    text-decoration: none !important;
+    list-style: none !important;
+    box-sizing: border-box !important;
+}
+
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    background: var(--color-bgprimary) !important;
+}
+
+.container-1 {
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    margin-left: 0 !important;
+    gap: 2.5rem;
+    grid-template-columns: 25rem auto;
+}
+
+main {
+    width: 85%;
+    // isikan di sini
+    .main-title {
+        margin-top: -30px !important;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 36px;
+        color: var(--color-primary);
+        span {
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 72px;
+            color: #C957FF;
+        }
+    }
+    p {
+        margin-top: -10px;
+        font-size: 14px;
+    }
+    .card-1 {
+        background: #FF5757;
+    }
+    .card-2 {
+        background: #C957FF;
+    }
+    .card-3 {
+        background: #5900EB;
+    }
+    .card {
+        padding: 0px !important;
+        h1 {
+            font-weight: bold;
+            font-size: 64px;
+            line-height: 96px;
+            padding: 0px;
+            color: var(--color-primary);
+        }
+        h3 {
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 28px !important;
+            line-height: 42px;
+            color: var(--color-primary);
+        }
+        p {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--color-primary);
+        }
+        .card-body {
+            padding: 0px 25px;
+        }
+        .card-title {
+            margin-top: 10px !important;
+        }
+    }
+    .section-menu {
+        .card {
+            padding: 37px !important;
+            background: linear-gradient(252.66deg, #363636 -51.73%, #252525 48.68%, rgba(42, 38, 48, 0.58) 100%);
+            box-shadow: 4px 4px 12px rgba(202, 202, 202, 0.05);
+            .card-body {
+                padding: 0px;
+                img {
+                    max-width: 65px;
+                    margin-top: 0px;
+                    opacity: 50%;
+                }
+                h5 {
+                    font-weight: 600;
+                    font-size: 28px;
+                    line-height: 42px;
+                    color: var(--color-primary);
+                    float: none !important;
+                    opacity: 50%;
+                }
+                p {
+                    margin: 0px;
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 27px;
+                    color: #9388A2;
+                }
+            }
+        }
+    }
+    .on-mobile {
+        p {
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        img {
+            width: 50px !important;
+            height: 50px !important;
+            margin-top: -5px;
+        }
+    }
+}
+
+.right {
+    p {
+        display: none;
+    }
+}
+
+// media query
+@media screen and (max-width: 1200px) {
+    .container-1 {
+        width: 94%;
+        grid-template-columns: 7rem auto !important;
+        gap: 1rem;
+        label {
+            font-size: 16px !important;
+            margin-left: 10px !important;
+        }
+    }
+    aside {
+        width: 77px;
+        .profile {
+            display: none;
+        }
+        .sidebar {
+            h3 {
+                display: none;
+            }
+            a {
+                width: 5.5rem;
+            }
+            hr {
+                display: none;
+            }
+        }
+    }
+    main {
+        // isikan di sini
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-1 {
+        width: 100%;
+        grid-template-columns: 1fr !important;
+    }
+    aside {
+        position: fixed;
+        left: -100%;
+        width: 18rem;
+        z-index: 3;
+        height: 100vh;
+        display: none;
+        animation: showMenu 400ms ease forwards;
+        @keyframes showMenu {
+            to {
+                left: 0;
+            }
+        }
+        .profile {
+            margin-left: 1rem;
+        }
+        .sidebar {
+            h3 {
+                display: inline;
+                font-size: 14px !important;
+            }
+            a {
+                width: 72%;
+                height: 3.4rem;
+            }
+        }
+        .close {
+            display: inline-block;
+            cursor: pointer;
+            margin-left: 200px;
+        }
+    }
+    main {
+        //isikan disini
+        width: 100%;
+        .on-default {
+            display: none;
+        }
+    }
+    .right {
+        width: 94%;
+        margin: 0 auto 4rem;
+        .top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            align-items: center;
+            padding: 5px 20pxrem;
+            height: 5rem;
+            background: #141414;
+            width: 100%;
+            margin: 0;
+            z-index: 2;
+        }
+        p {
+            display: inline-block;
+        }
+    }
+}
