@@ -3,6 +3,11 @@ require ('koneksi.php');
 
 session_start();
 
+if(isset($_SESSION['uid'])){
+    $_SESSION['msg'] = 'Anda telah login';
+    header('Location: dashboard.php');
+}
+
 if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $pass = $_POST['password'];
@@ -22,7 +27,7 @@ if(isset($_POST['submit'])){
             if($userVal==$email && $passVal==$pass){
                 $_SESSION['uid'] = $uid;
                 $_SESSION['name'] = $userName;
-                header('Location: home.php?');
+                header('Location: dashboard.php');
             } else {
                 $error = 'User atau password salah !!'; // jika user atau password salah maka akan muncul alert
                 echo "<script type='text/javascript'>alert('$error');</script>";

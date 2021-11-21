@@ -77,7 +77,7 @@ $sesUid = $_SESSION['uid'];
                         <span class="material-icons-sharp">info</span>
                         <h3>Informasi</h3>
                     </a>
-                    <a href="login.php">
+                    <a href="logout.php">
                         <span class="material-icons-sharp">transit_enterexit</span>
                         <h3>Keluar</h3>
                     </a>

@@ -6,13 +6,20 @@ require ('koneksi.php');
 require ('koneksi.php');
 // $email = $_GET['user_fullname'];
 session_start();
+
+if(!isset($_SESSION['uid'])){
+    $_SESSION['msg'] = 'Anda harus login untuk mengakses halaman ini';
+    header('Location: login.php');
+}
+$sesUid = $_SESSION['uid'];
+
 if(isset($_POST['update'])){
     $userName = $_POST['nama_lengkap'];
-    $userId = $_POST['uid'];
     $userMail = $_POST['email'];
     $userNo = $_POST['nomor_telepon'];
+    $userPass = $_POST['password'];
 
-    $query = "UPDATE user SET nama_lengkap ='$userName', email='$userMail', no_telepon = '$userNo' WHERE uid='$sesUid'";
+    $query = "UPDATE `user` SET `email` = '$userMail', `nama_lengkap` = '$userName', `nomor_telepon` = '$userNo' WHERE `user`.`uid` = $sesUid;";
     $result = mysqli_query($koneksi, $query);
     header('Location: profil_edit.php');
 }
@@ -28,6 +35,20 @@ while ($row = mysqli_fetch_array($result)){
     $userNo = $row['nomor_telepon'];
 }
 
+if(isset($_POST['update'])){
+    $userPass = $_POST['password'];
+    $newPasssword = $_POST['newpassword'];
+
+    if($userPass == $userPass){
+        $query = "UPDATE `user` SET `password` = '$newpassword' WHERE `user`.`uid` = $sesUid;";
+        $result = mysqli_query($koneksi, $query);
+        $num = mysqli_num_rows($result);
+        
+        while($row = mysqli_fetch_array($result)){
+            $newPasssword = $row['password'];
+        }
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -145,22 +166,22 @@ while ($row = mysqli_fetch_array($result)){
                             </div>
                             <div class="mb-4">
                                 <label for="inputTelepon" class="form-label">Nomor Telepon</label>
-                                <input type="text" class="form-control" id="inputTelepon" value="<?php echo $userNo; ?>">
+                                <input type="text" class="form-control" id="inputTelepon" name="nomor_telepon" value="<?php echo $userNo; ?>">
                             </div>
                         </div>
                         <div class="col-md">
                             <h3>Ganti Password</h3>
                             <div class="mb-4">
                                 <label for="passwordLama" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="passwordLama">
+                                <input type="password" class="form-control" id="passwordLama" name="password">
                             </div>
                             <div class="mb-4">
                                 <label for="passwordBaru" class="form-label">Password Baru</label>
-                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru">
+                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="newpassword">
                             </div>
                             <div class="mb-4">
                                 <label for="konfirmasiPasswordBaru" class="form-label">Konfirmasi Password Baru</label>
-                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru">
+                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" new="newpassword">
                             </div>
                         </div>
                     </div>
