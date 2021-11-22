@@ -146,8 +146,10 @@ if(isset($_POST['update'])){
                     <img src="' . $row["profile_img"] . '" alt="image profile ">
                         </div>';   }
                     ?>
+                    <form action="simpan.php" method="POST" enctype="multipart/form-data">
                     <div class="button my-auto mx-2">                 
-                        <button class="btn btn-primary" >Ganti Foto</button>
+                        <input type="file" name="NamaFile" value="Ganti Foto"></input>
+                        <input type="submit" name="proses" value="Simpan Foto">
                         <br>
                         <button class="btn btn-secondary">Hapus Foto</button>
                     </div>
