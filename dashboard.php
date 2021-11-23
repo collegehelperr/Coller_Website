@@ -260,8 +260,6 @@ $sesUid = $_SESSION['uid'];
                         </div>
                     </div>
                 </div>
-                <!-- <h2>Progress</h2>
-                <img src="img/progress.png" alt="progress"> -->
             </div>
         </div>
     </div>
