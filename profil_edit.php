@@ -112,7 +112,7 @@ if(isset($_POST['update'])){
                         <h3>College Management</h3>
                     </a>
                     <hr>
-                    <a href="profil.html" class="active">
+                    <a href="profil.php" class="active">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>
