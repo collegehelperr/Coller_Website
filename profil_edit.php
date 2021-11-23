@@ -100,12 +100,12 @@ if(isset($_POST['update'])){
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Wheel Spinner</h3>
                     </a>
-                    <a href="#">
+                    <a href="college.html">
                         <span class="material-icons-sharp">school</span>
                         <h3>College Management</h3>
                     </a>
                     <hr>
-                    <a href="#" class="active">
+                    <a href="profil.html" class="active">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>
@@ -113,7 +113,7 @@ if(isset($_POST['update'])){
                         <span class="material-icons-sharp">info</span>
                         <h3>Informasi</h3>
                     </a>
-                    <a href="login.php">
+                    <a href="logout.php">
                         <span class="material-icons-sharp">transit_enterexit</span>
                         <h3>Keluar</h3>
                     </a>
@@ -127,17 +127,6 @@ if(isset($_POST['update'])){
             <!-- card 1 - Jadwal -->
             <h3>Foto Profil</h3>
             <div class="row">
-                <!-- <div class="col">
-                    <img src="img/thumb_profile.png" alt="image profile">
-                </div>
-                <div class="col">
-                    <div class="">
-                        <button class="btn btn-primary">Ganti Foto</button>
-                        <br>
-                        <button class="btn btn-secondary">Hapus Foto</button>
-                    </div>
-                </div>
-            </div> -->
                 <div class="top-edit d-md-flex justify-content-center">
                 <?php
             $sql_kar = mysqli_query($koneksi, "SELECT * FROM user WHERE uid = '$sesUid' ");
@@ -191,10 +180,6 @@ if(isset($_POST['update'])){
                         <button class="btn btn-danger mb-sm-3 mx-md-2">Batalkan Perubahan</button>
                         <button class="btn btn-success mx-md-2" name="update" type="submit">Simpan Perubahan</button>
                     </div>
-                    <!-- <div class="row">
-                    <div class="col"><button class="btn btn-danger float-md-end float-sm-start mb-sm">Batalkan Perubahan</button></div>
-                    <div class="col"><button class="btn btn-success">Simpan Perubahan</button></div>
-                </div> -->
                 </form>
 
                 <div class="right">

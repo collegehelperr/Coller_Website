@@ -56,7 +56,7 @@ $sesUid = $_SESSION['uid'];
                     </div>
                 </div>
                 <div class="sidebar">
-                    <a href="#" class="active">
+                    <a href="dashboard.php" class="active">
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
@@ -64,12 +64,12 @@ $sesUid = $_SESSION['uid'];
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Wheel Spinner</h3>
                     </a>
-                    <a href="#">
+                    <a href="college.html">
                         <span class="material-icons-sharp">school</span>
                         <h3>College Management</h3>
                     </a>
                     <hr>
-                    <a href="profil_edit.php">
+                    <a href="profil.html">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>
@@ -92,7 +92,7 @@ $sesUid = $_SESSION['uid'];
             <div class="card mt-5">
                 <div class="card-body">
                     <h5 class="card-title">Jadwalmu hari ini</h5>
-                    <a href="#">
+                    <a href="schedule.html">
                         <img src="img/ic_next.png" class="ic-next  float-end" alt="icon next">
                     </a>
                     <hr>
