@@ -13,17 +13,6 @@ if(!isset($_SESSION['uid'])){
 }
 $sesUid = $_SESSION['uid'];
 
-if(isset($_POST['update'])){
-    $userName = $_POST['nama_lengkap'];
-    $userMail = $_POST['email'];
-    $userNo = $_POST['nomor_telepon'];
-    $userPass = $_POST['password'];
-
-    $query = "UPDATE `user` SET `email` = '$userMail', `nama_lengkap` = '$userName', `nomor_telepon` = '$userNo' WHERE `user`.`uid` = $sesUid;";
-    $result = mysqli_query($koneksi, $query);
-    header('Location: profil_edit.php');
-}
-
 $sesUid = $_SESSION['uid'];
 $query = "SELECT * FROM user WHERE uid='$sesUid'";
 $result = mysqli_query($koneksi, $query) or die (mysql_error());
@@ -36,18 +25,36 @@ while ($row = mysqli_fetch_array($result)){
 }
 
 if(isset($_POST['update'])){
-    $userPass = $_POST['password'];
-    $newPasssword = $_POST['newpassword'];
 
-    if($userPass == $userPass){
-        $query = "UPDATE `user` SET `password` = '$newpassword' WHERE `user`.`uid` = $sesUid;";
-        $result = mysqli_query($koneksi, $query);
-        $num = mysqli_num_rows($result);
-        
-        while($row = mysqli_fetch_array($result)){
-            $newPasssword = $row['password'];
+    $pass = $_POST['txt_pass'];
+
+    if($pass != ""){
+        $newpass = $_POST['txt_newpass'];
+        $confpass = $_POST['txt_confpass'];
+
+        if($newpass == $confpass){
+            if($pass == $userPass){
+                $query = "UPDATE `user` SET `password` = '$newpass' WHERE `user`.`uid` = $sesUid;";
+                $result = mysqli_query($koneksi, $query);
+                header('Location: profil_edit.php');
+            } else {
+                $error = 'Password salah!!'; // jika user atau password salah maka akan muncul alert
+                echo "<script type='text/javascript'>alert('$error');</script>";
+            }
+        } else {
+            $error = 'Field password tidak cocok!!'; // jika user atau password salah maka akan muncul alert
+            echo "<script type='text/javascript'>alert('$error');</script>";
         }
+    } else {
+        $userName = $_POST['nama_lengkap'];
+        $userMail = $_POST['email'];
+        $userNo = $_POST['nomor_telepon'];
+
+        $query = "UPDATE `user` SET `email` = '$userMail', `nama_lengkap` = '$userName', `nomor_telepon` = '$userNo' WHERE `user`.`uid` = $sesUid;";
+        $result = mysqli_query($koneksi, $query);
+        header('Location: profil_edit.php');
     }
+
 }
 
 ?>
@@ -164,15 +171,15 @@ if(isset($_POST['update'])){
                             <h3>Ganti Password</h3>
                             <div class="mb-4">
                                 <label for="passwordLama" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="passwordLama" name="password">
+                                <input type="password" class="form-control" id="passwordLama" name="txt_pass">
                             </div>
                             <div class="mb-4">
                                 <label for="passwordBaru" class="form-label">Password Baru</label>
-                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="newpassword">
+                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="txt_newpass">
                             </div>
                             <div class="mb-4">
                                 <label for="konfirmasiPasswordBaru" class="form-label">Konfirmasi Password Baru</label>
-                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" new="newpassword">
+                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" new="txt_confpass">
                             </div>
                         </div>
                     </div>
