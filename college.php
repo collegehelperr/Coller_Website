@@ -1,3 +1,31 @@
+<?php
+require ('koneksi.php');
+?>
+
+<?php
+require ('koneksi.php');
+// $email = $_GET['user_fullname'];
+session_start();
+
+if(!isset($_SESSION['uid'])){
+    $_SESSION['msg'] = 'Anda harus login untuk mengakses halaman ini';
+    header('Location: login.php');
+}
+$sesUid = $_SESSION['uid'];
+
+$sesUid = $_SESSION['uid'];
+$query = "SELECT * FROM user WHERE uid='$sesUid'";
+$result = mysqli_query($koneksi, $query) or die (mysql_error());
+while ($row = mysqli_fetch_array($result)){
+    $uid = $row['uid'];
+    $userMail = $row['email'];
+    $userPass = $row['password'];
+    $userName = $row['nama_lengkap'];
+    $userNo = $row['nomor_telepon'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,14 +49,19 @@
         <aside>
             <div class="pos">
                 <div class="top">
-                    <div class="profile">
-                        <img src="img/thumb_profile.png" alt="thumb profile">
-                        <div class="title align-self-center">
-                            <h2>Arlene McCoy</h2>
-                            <p>arln_coy@gmail.com</p>
-                        </div>
-                        <!-- <p>arln_coy@gmail.com</p> -->
-                    </div>
+                <?php
+            $sql_kar = mysqli_query($koneksi, "SELECT * FROM user WHERE uid = '$sesUid' ");
+            while ($row = mysqli_fetch_array($sql_kar)){
+                echo '<div class="profile">
+                <img src="' . $row["profile_img"] . '" alt="thumb profile">
+                <div class="title align-self-center">
+                <h2>'. $row["nama_lengkap"] .'</h2>
+                <p>'. $row["email"] .'</p>
+                </div>
+                <!-- <p>arln_coy@gmail.com</p> -->
+            </div>';
+            }
+            ?>
                     <div class="close" id="close-btn">
                         <span class="material-icons-sharp">close</span>
                     </div>
@@ -47,7 +80,7 @@
                         <h3>College Management</h3>
                     </a>
                     <hr>
-                    <a href="profil_edit.php">
+                    <a href="profil.php">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>

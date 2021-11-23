@@ -64,12 +64,12 @@ $sesUid = $_SESSION['uid'];
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Wheel Spinner</h3>
                     </a>
-                    <a href="college.html">
+                    <a href="college.php">
                         <span class="material-icons-sharp">school</span>
                         <h3>College Management</h3>
                     </a>
                     <hr>
-                    <a href="profil.html">
+                    <a href="profil.php">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>

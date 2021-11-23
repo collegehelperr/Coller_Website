@@ -107,7 +107,7 @@ if(isset($_POST['update'])){
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Wheel Spinner</h3>
                     </a>
-                    <a href="college.html">
+                    <a href="college.php">
                         <span class="material-icons-sharp">school</span>
                         <h3>College Management</h3>
                     </a>
@@ -149,6 +149,7 @@ if(isset($_POST['update'])){
                         <br>
                         <button class="btn btn-secondary">Hapus Foto</button>
                     </div>
+                    </form>
                 </div>
                 <form action="profil_edit.php" method="POST">
                     <div class="row">
@@ -179,7 +180,7 @@ if(isset($_POST['update'])){
                             </div>
                             <div class="mb-4">
                                 <label for="konfirmasiPasswordBaru" class="form-label">Konfirmasi Password Baru</label>
-                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" new="txt_confpass">
+                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="txt_confpass">
                             </div>
                         </div>
                     </div>
