@@ -79,10 +79,6 @@ a:hover {
   background-color: #1D1B1F;
 }
 
-.register-left .btn-primary {
-  margin-bottom: 70px;
-}
-
 .register-left .title {
   margin: 70px 125px;
 }
@@ -131,6 +127,14 @@ a:hover {
 
 .register-right form .login-at-register {
   margin-top: 68px;
+}
+
+.register-right form .btn-primary {
+  margin-bottom: 70px !important;
+}
+
+.register-right form .subtitle-regis {
+  color: #686868;
 }
 
 .register-right p {

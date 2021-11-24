@@ -153,8 +153,8 @@ main .on-mobile p {
 }
 
 main .on-mobile img {
-  width: 60px !important;
-  height: 60px !important;
+  width: 50px !important;
+  height: 50px !important;
   margin-top: -5px;
 }
 

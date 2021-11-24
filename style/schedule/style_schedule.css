@@ -73,7 +73,7 @@ main .breadcrumb .active {
   border-bottom: none !important;
 }
 
-main nav .active {
+main .nav-day .active {
   color: var(--color-primary) !important;
   font-weight: 600 !important;
   font-size: 18px !important;
@@ -81,9 +81,9 @@ main nav .active {
   border-bottom: 2px solid #C957FF;
 }
 
-main nav a:hover {
+main .nav-day a:hover {
   color: var(--color-primary) !important;
-  font-weight: 600 !important;
+  font-weight: 400 !important;
   font-size: 18px !important;
   margin-top: -3px;
 }
