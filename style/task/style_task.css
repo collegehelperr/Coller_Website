@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --color-primary: #fff;
+  --color-secondary: #999999;
+  --color-tri: #9388A2;
+  --color-success: linear-gradient(90.31deg, #FF5757 1.77%, #FF57BC 29.07%, #C957FF 58.47%, #5900EB 100.47%);
+  --color-bgprimary: #0E050F;
+  --color-bgsidebar: #2A2630;
+  --color-bgcardprimary: #1D1B1F;
+  --border-radius-1: 11px;
+  --border-radius-2: 3px;
+}
+
+* {
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
+  outline: none !important;
+  text-decoration: none !important;
+  list-style: none !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+  background: var(--color-bgprimary) !important;
+}
+
+.container-1 {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+  margin-left: 0 !important;
+  gap: 2.5rem;
+  -ms-grid-columns: 25rem auto;
+      grid-template-columns: 25rem auto;
+}
+
+.btn-outline-light,
+.btn-light {
+  padding: 9px 30px !important;
+  border-radius: 40px !important;
+}
+
+main {
+  width: 85%;
+}
+
+main .main-title {
+  margin-top: -30px !important;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: var(--color-primary);
+}
+
+main .main-title span {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 72px;
+  color: #C957FF;
+}
+
+main p {
+  margin-top: -10px;
+  font-size: 14px;
+}
+
+main nav {
+  margin-top: -10px;
+}
+
+main nav .active {
+  color: #df9aff !important;
+}
+
+main .section-filter {
+  margin: 30px 0 40px 0 !important;
+}
+
+main .card {
+  background: #141414 !important;
+  padding: 25px 30px;
+}
+
+main .card img {
+  width: 20px;
+  margin-top: 0px;
+}
+
+main .card p {
+  margin-left: 26px;
+  font-size: 16px;
+  color: #646464;
+}
+
+main .card small {
+  font-size: 14px;
+  color: var(--color-tri) !important;
+}
+
+main .card .card-body {
+  padding: 0px !important;
+}
+
+main .card .form-check input {
+  width: 16px;
+  height: 16px;
+}
+
+main .card .form-check input:checked {
+  background: #C957FF;
+}
+
+main .card .form-check label {
+  color: #E9E9EA;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  margin-left: 15px;
+}
+
+main form {
+  width: 20% !important;
+}
+
+main form textarea {
+  height: 100px !important;
+}
+
+main form input,
+main form select {
+  height: 63px !important;
+}
+
+main form input,
+main form select,
+main form textarea {
+  background: #141414 !important;
+  border: none !important;
+}
+
+main form .btn-secondary {
+  width: 100% !important;
+  height: 50px !important;
+  border-radius: 4px;
+  font-size: 18px;
+  background: #474747;
+  border: none;
+}
+
+main form .btn-secondary:hover {
+  background: linear-gradient(90.31deg, #FF5757 1.77%, #FF57BC 29.07%, #C957FF 58.47%, #5900EB 100.47%);
+  border: none;
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.right p {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .container-1 {
+    width: 94%;
+    -ms-grid-columns: 7rem auto !important;
+        grid-template-columns: 7rem auto !important;
+    gap: 1rem;
+  }
+  .container-1 label {
+    font-size: 16px !important;
+    margin-left: 10px !important;
+  }
+  aside {
+    width: 77px;
+  }
+  aside .profile {
+    display: none;
+  }
+  aside .sidebar h3 {
+    display: none;
+  }
+  aside .sidebar a {
+    width: 5.5rem;
+  }
+  aside .sidebar hr {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-1 {
+    width: 100%;
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+  }
+  aside {
+    position: fixed;
+    left: -100%;
+    width: 18rem;
+    z-index: 3;
+    height: 100vh;
+    display: none;
+    -webkit-animation: showMenu 400ms ease forwards;
+            animation: showMenu 400ms ease forwards;
+  }
+  @-webkit-keyframes showMenu {
+    to {
+      left: 0;
+    }
+  }
+  @keyframes showMenu {
+    to {
+      left: 0;
+    }
+  }
+  aside .profile {
+    margin-left: 1rem;
+  }
+  aside .sidebar h3 {
+    display: inline;
+    font-size: 14px !important;
+  }
+  aside .sidebar a {
+    width: 72%;
+    height: 3.4rem;
+  }
+  aside .close {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 200px;
+  }
+  main {
+    width: 100%;
+  }
+  main .on-default {
+    display: none;
+  }
+  main .section-filter button {
+    margin: 10px 10px 0 0;
+    padding: 5px 20px !important;
+  }
+  .card {
+    padding: 20px 30px !important;
+  }
+  .card p {
+    font-size: 14px !important;
+    margin-left: 20px !important;
+  }
+  .right {
+    width: 94%;
+    margin: 0 auto 4rem;
+  }
+  .right .top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 5px 20pxrem;
+    height: 5rem;
+    background: #141414;
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+  }
+  .right p {
+    display: inline-block;
+  }
+}
+/*# sourceMappingURL=style_task.css.map */
