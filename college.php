@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_array($result)){
     $userMail = $row['email'];
     $userPass = $row['password'];
     $userName = $row['nama_lengkap'];
-    $userNo = $row['nomor_telepon'];
+    $userNo = $row['no_hp'];
 }
 ?>
 
@@ -117,7 +117,7 @@ while ($row = mysqli_fetch_array($result)){
                     </a>
                 </div>
                 <div class="col">
-                    <a href="schedule.html">
+                    <a href="schedule.php?hari=Senin">
                         <div class="card card-2">
                             <div class="row card-body">
                                 <h1 class="col-3 card-title">3</h5>
@@ -130,7 +130,7 @@ while ($row = mysqli_fetch_array($result)){
                     </a>
                 </div>
                 <div class="col">
-                    <a href="todolist.html">
+                    <a href="#">
                         <div class="card card-3">
                             <div class="row card-body">
                                 <h1 class="col-3 card-title">4</h5>
@@ -163,7 +163,7 @@ while ($row = mysqli_fetch_array($result)){
                             </a>
                         </div>
                         <div class="col">
-                            <a href="schedule.html">
+                            <a href="schedule.php?hari=Senin">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="img/ic_schedule.png" alt="ic_note">
@@ -187,7 +187,7 @@ while ($row = mysqli_fetch_array($result)){
                             </a>
                         </div>
                         <div class="col">
-                            <a href="todolist.html">
+                            <a href="#">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="img/ic_todolist.png" alt="ic_note">
@@ -209,7 +209,7 @@ while ($row = mysqli_fetch_array($result)){
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="schedule.html">
+                            <a href="schedule.php?hari=Senin">
                                 <p>Schedule</p>
                                 <img src="img/ic_schedule_mobile.png" class="mx-auto" alt="schedule">
                             </a>
@@ -221,7 +221,7 @@ while ($row = mysqli_fetch_array($result)){
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="todolist.html">
+                            <a href="#">
                                 <p>To do list</p>
                                 <img src="img/ic_todolist_mobile.png" class="mx-auto" alt="todolist">
                             </a>

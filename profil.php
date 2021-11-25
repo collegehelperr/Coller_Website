@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_array($result)){
     $userMail = $row['email'];
     $userPass = $row['password'];
     $userName = $row['nama_lengkap'];
-    $userNo = $row['nomor_telepon'];
+    $userNo = $row['no_hp'];
 }
 ?>
 
@@ -121,7 +121,7 @@ while ($row = mysqli_fetch_array($result)){
 
                         <div class="bottom">
                             <p class="profile-title float-start">Nomor Telepon</p>
-                            <p class="profile-value float-sm-end">'. $row["nomor_telepon"] .'</p>
+                            <p class="profile-value float-sm-end">'. $row["no_hp"] .'</p>
                         </div>
                         <hr>
 

@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_array($result)){
     $userMail = $row['email'];
     $userPass = $row['password'];
     $userName = $row['nama_lengkap'];
-    $userNo = $row['nomor_telepon'];
+    $userNo = $row['no_hp'];
 }
 
 if(isset($_POST['update'])){
@@ -50,7 +50,7 @@ if(isset($_POST['update'])){
         $userMail = $_POST['email'];
         $userNo = $_POST['nomor_telepon'];
 
-        $query = "UPDATE `user` SET `email` = '$userMail', `nama_lengkap` = '$userName', `nomor_telepon` = '$userNo' WHERE `user`.`uid` = $sesUid;";
+        $query = "UPDATE `user` SET `email` = '$userMail', `nama_lengkap` = '$userName', `no_hp` = '$userNo' WHERE `user`.`uid` = $sesUid;";
         $result = mysqli_query($koneksi, $query);
         header('Location: profil_edit.php');
     }
@@ -112,7 +112,7 @@ if(isset($_POST['update'])){
                         <h3>College Management</h3>
                     </a>
                     <hr>
-                    <a href="profil.php" class="active">
+                    <a href="profil.html" class="active">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>
@@ -140,7 +140,8 @@ if(isset($_POST['update'])){
             while ($row = mysqli_fetch_array($sql_kar)){
                 echo '<div class="image mx-4">
                     <img src="' . $row["profile_img"] . '" alt="image profile ">
-                        </div>';   }
+                        </div>';   
+                    }
                     ?>
                     <form action="simpan.php" method="POST" enctype="multipart/form-data">
                     <div class="button my-auto mx-2">                 
