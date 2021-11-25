@@ -120,7 +120,14 @@ while ($row = mysqli_fetch_array($result)){
                     <a href="schedule.php?hari=Senin">
                         <div class="card card-2">
                             <div class="row card-body">
-                                <h1 class="col-3 card-title">3</h5>
+                                <h1 class="col-3 card-title">
+                                    <?php
+                                $query = "SELECT * FROM college_schedule WHERE uid = $sesUid";
+                                $result = mysqli_query($koneksi, $query) or die (mysql_error());
+                                $total_schedule = mysqli_num_rows($result);
+                                echo $total_schedule;
+                                    ?>
+                                </h5>
                                     <div class="col card-content my-auto">
                                         <h3>Schedule</h3>
                                         <p>Untuk hari ini</p>
