@@ -144,57 +144,57 @@ if(isset($_POST['update'])){
                         </div>';   
                     }
                     ?>
-                    <form action="simpan_img.php" method="POST" enctype="multipart/form-data">
-                    <div class="button my-auto mx-2">
-                    </div>                 
-                        <input type="file" name="file" value="Ganti Foto" class="btn btn-secondary"></input>
-                        <br>
-                        <br>
-                        <br>
-                        <input type="submit" name="upload" value="Simpan Foto" class="btn btn-secondary">
-                        <br>
-                        <!-- <button class="btn btn-secondary">Hapus Foto</button> -->
-                    </div>
+                    <form action="simpan_img.php" method="POST" enctype="multipart/form-data" class="align-self-center">
+                        <div class="button my-auto mx-2">
+                        </div>                 
+                            <!-- <input type="file" name="file" value="Ganti Foto" class="btn btn-secondary"></input> -->
+                        <input class="form-control form-control-lg my-3 bg-dark link-light" name="file" value="Ganti Foto" type="file">
+
+                        <input type="submit" name="upload" value="Simpan Foto" class="btn btn-primary float-end">
+                            <!-- <button class="btn btn-secondary">Hapus Foto</button> -->
+                        </div>
                     </form>
                 </div>
-                <form action="profil_edit.php" method="POST">
-                    <div class="row">
-                        <div class="col-md">
-                            <h3>Data Diri</h3>
-                            <div class="mb-4">
-                                <label for="inputNama" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $userName; ?>">
+                <div class="profil-edit">
+                    <form action="profil_edit.php" method="POST">
+                        <div class="row">
+                            <div class="col-md">
+                                <h3>Data Diri</h3>
+                                <div class="mb-4">
+                                    <label for="inputNama" class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $userName; ?>">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="inputEmail" required class="form-label">Email</label>
+                                    <input type="text" name="email" required class="form-control"  value="<?php echo $userMail; ?>">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="inputTelepon" class="form-label">Nomor Telepon</label>
+                                    <input type="text" class="form-control" id="inputTelepon" name="nomor_telepon" value="<?php echo $userNo; ?>">
+                                </div>
                             </div>
-                            <div class="mb-4">
-                                <label for="inputEmail" required class="form-label">Email</label>
-                                <input type="text" name="email" required class="form-control"  value="<?php echo $userMail; ?>">
-                            </div>
-                            <div class="mb-4">
-                                <label for="inputTelepon" class="form-label">Nomor Telepon</label>
-                                <input type="text" class="form-control" id="inputTelepon" name="nomor_telepon" value="<?php echo $userNo; ?>">
+                            <div class="col-md">
+                                <h3>Ganti Password</h3>
+                                <div class="mb-4">
+                                    <label for="passwordLama" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="passwordLama" name="txt_pass">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="passwordBaru" class="form-label">Password Baru</label>
+                                    <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="txt_newpass">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="konfirmasiPasswordBaru" class="form-label">Konfirmasi Password Baru</label>
+                                    <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="txt_confpass">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md">
-                            <h3>Ganti Password</h3>
-                            <div class="mb-4">
-                                <label for="passwordLama" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="passwordLama" name="txt_pass">
-                            </div>
-                            <div class="mb-4">
-                                <label for="passwordBaru" class="form-label">Password Baru</label>
-                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="txt_newpass">
-                            </div>
-                            <div class="mb-4">
-                                <label for="konfirmasiPasswordBaru" class="form-label">Konfirmasi Password Baru</label>
-                                <input type="password" class="form-control" id="KonfirmasiPasswordBaru" name="txt_confpass">
-                            </div>
+                        <div class="d-md-flex justify-content-center mt-4">
+                            <button class="btn btn-danger mb-sm-3 mx-md-2">Batalkan Perubahan</button>
+                            <button class="btn btn-success mx-md-2" name="update" type="submit">Simpan Perubahan</button>
                         </div>
-                    </div>
-                    <div class="d-md-flex justify-content-center mt-4">
-                        <button class="btn btn-danger mb-sm-3 mx-md-2">Batalkan Perubahan</button>
-                        <button class="btn btn-success mx-md-2" name="update" type="submit">Simpan Perubahan</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
