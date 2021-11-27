@@ -108,14 +108,15 @@ $sesUid = $_SESSION['uid'];
             <!-- section menu -->
             <div class="row mt-3">
                 <div class="col-md-8">
+                <?php foreach ($college_notes as $note): ?>
                     <div class="card mb-3">
                         <div class="card-body">
-                            <?php foreach ($college_notes as $note): ?>
-                                <form action="delete_notes.php" method="post">
+                                <form action="delete_notes.php" class="float-end" method="post">
                                     <input type="hidden" name="id_note" value="<?php echo $note['id_note'] ?>">
-                                    <button class="btn-delete">x</button>
+                                    <button class="btn bg-transparant float-end">
+                                        <img src="img/Close_square.png" alt="ic_close">
+                                    </button>
                                 </form>
-
                             <!-- <a href="delete.php <?php echo $note['id_note'] ?>"> <img src="img/Close_square.png" name="id_note" class="float-end"> -->
 
                             <a href="?id_note=<?php echo $note['id_note'] ?>">
@@ -125,9 +126,10 @@ $sesUid = $_SESSION['uid'];
                                 <?php echo date('d/m/Y H:i', strtotime($note['tgl_note'])) ?>
                             </h6>
                             <p><?php echo $note['isi_note'] ?></p>
-                            <?php endforeach; ?>
+                            
                         </div>
                     </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="col-md-4">
                     <form action="create_notes.php" class="mt-3 position-fixed" method="post">

@@ -104,7 +104,7 @@ while ($row = mysqli_fetch_array($result)){
             <!-- section informasi -->
             <div class="row mt-5">
                 <div class="col">
-                    <a href="#">
+                    <a href="task.html">
                         <div class="card card-1">
                             <div class="row card-body">
                                 <h1 class="col-3 card-title">5</h5>
@@ -137,7 +137,7 @@ while ($row = mysqli_fetch_array($result)){
                     </a>
                 </div>
                 <div class="col">
-                    <a href="#">
+                    <a href="todolist.html">
                         <div class="card card-3">
                             <div class="row card-body">
                                 <h1 class="col-3 card-title">4</h5>
@@ -158,7 +158,7 @@ while ($row = mysqli_fetch_array($result)){
                     <h1 class="mt-5">Menu</h1>
                     <div class="row">
                         <div class="col">
-                            <a href="notes.html">
+                            <a href="note.php">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="img/ic_note.png" alt="ic_note">
@@ -183,7 +183,7 @@ while ($row = mysqli_fetch_array($result)){
                     </div>
                     <div class="row mt-md-3">
                         <div class="col">
-                            <a href="#">
+                            <a href="task.html">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="img/ic_task.png" alt="ic_note">
@@ -194,7 +194,7 @@ while ($row = mysqli_fetch_array($result)){
                             </a>
                         </div>
                         <div class="col">
-                            <a href="#">
+                            <a href="todolist.html">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="img/ic_todolist.png" alt="ic_note">
@@ -209,7 +209,7 @@ while ($row = mysqli_fetch_array($result)){
                 <div class="on-mobile d-md-none mt-5">
                     <div class="row">
                         <div class="col text-center">
-                            <a href="notes.html">
+                            <a href="note.php">
                                 <p>Notes</p>
                                 <img src="img/ic_notes_mobile.png" class="mx-auto" alt="notes">
 
@@ -222,7 +222,7 @@ while ($row = mysqli_fetch_array($result)){
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="#">
+                            <a href="task.html">
                                 <p>Task</p>
                                 <img src="img/ic_task_mobile.png" class="mx-auto" alt="task">
                             </a>
