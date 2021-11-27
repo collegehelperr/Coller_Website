@@ -73,6 +73,7 @@ if(isset($_POST['update'])){
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/profil-edit/style_profil_edit.css">
 
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
@@ -143,12 +144,16 @@ if(isset($_POST['update'])){
                         </div>';   
                     }
                     ?>
-                    <form action="simpan.php" method="POST" enctype="multipart/form-data">
-                    <div class="button my-auto mx-2">                 
-                        <input type="file" name="NamaFile" value="Ganti Foto"></input>
-                        <input type="submit" name="proses" value="Simpan Foto">
+                    <form action="simpan_img.php" method="POST" enctype="multipart/form-data">
+                    <div class="button my-auto mx-2">
+                    </div>                 
+                        <input type="file" name="file" value="Ganti Foto" class="btn btn-secondary"></input>
                         <br>
-                        <button class="btn btn-secondary">Hapus Foto</button>
+                        <br>
+                        <br>
+                        <input type="submit" name="upload" value="Simpan Foto" class="btn btn-secondary">
+                        <br>
+                        <!-- <button class="btn btn-secondary">Hapus Foto</button> -->
                     </div>
                     </form>
                 </div>
@@ -190,7 +195,6 @@ if(isset($_POST['update'])){
                         <button class="btn btn-success mx-md-2" name="update" type="submit">Simpan Perubahan</button>
                     </div>
                 </form>
-
                 <div class="right">
                     <div class="top">
                         <button id="menu-btn">
@@ -199,6 +203,7 @@ if(isset($_POST['update'])){
                         <p class="float-end">13 November 2021</p>
                     </div>
                 </div>
+                
         </main>
         </div>
 

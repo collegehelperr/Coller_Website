@@ -250,7 +250,7 @@ if ( isset($_POST['submit']) ){
                     <div class="row text-secondary mb-1">
                     <?php
             $hari = $_GET ['hari'];
-            $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari' ");
+            $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari' AND uid='$sesUid' ");
             while ($row = mysqli_fetch_array($sql_kar)){
                 echo'
                 <div class="row text-secondary">

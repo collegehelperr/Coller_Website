@@ -1,34 +1,31 @@
 <?php
-    if (isset($_POST['btn_simpan'])) {
-        include 'koneksi.php';
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $ekstensi_diperbolehkan	= array('png','jpg');
-            $user = $_FILES['profile_img']['name'];
-            $x = explode('.', $profile_img);
-            $ekstensi = strtolower(end($x));
-            $file_tmp = $_FILES['profile_img']['tmp_name'];
+require ('koneksi.php');
+session_start();
 
-            if (!empty($profile_img)){
-                if (in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-    
-                    //upload gambar
-                    move_uploaded_file($file_tmp, 'profile_img/'.$profile_img);
+if(!isset($_SESSION['uid'])){
+    $_SESSION['msg'] = 'Anda harus login untuk mengakses halaman ini';
+    header('Location: login.php');
+}
+$sesUid = $_SESSION['uid'];
 
-                    $sql="insert into user values ('$profile_img')";
+if(isset($_POST['upload'])){ 
+    $img = $_FILES['file']['name'];
+    $target_dir = "img/profil/";
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $extensions_arr = array("jpg","jpeg","png","gif");   
 
-                    $simpan_bank=mysqli_query($koneksi,$sql);
-
-                    if ($simpan_bank) {
-                        header("Location:profil_edit.php?add=berhasil");
-                    }
-                    else {
-                        header("Location:profil_edit.php?add=gagal");
-                    }  
-                }
-            }else {
-                $profile_img="bank_default.png";
-            }
+    if( in_array($imageFileType,$extensions_arr) ){
+        if(move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$img)){
+          $query = "UPDATE `user` SET `profile_img` = '$target_file' WHERE `user`.`uid` = $sesUid;";
+          $result = mysqli_query($koneksi, $query);
+          header('Location: profil_edit.php');
+        } else {
+            echo "Error upload";
         }
+    } else {
+        echo "Error in array";
     }
+}
 ?>
