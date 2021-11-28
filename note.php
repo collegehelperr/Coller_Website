@@ -2,7 +2,6 @@
 
 /** @var Connection $connection */
 $connection = require_once 'pdo.php';
-// Read notes from database
 $college_notes = $connection->getNotes();
 
 $currentNote = [
@@ -117,29 +116,21 @@ $sesUid = $_SESSION['uid'];
                                         <img src="img/Close_square.png" alt="ic_close">
                                     </button>
                                 </form>
-                            <!-- <a href="delete.php <?php echo $note['id_note'] ?>"> <img src="img/Close_square.png" name="id_note" class="float-end"> -->
-
-                            <a href="?id_note=<?php echo $note['id_note'] ?>">
-                            <h5 class="card-title float-none"><?php echo $note['judul_note'] ?></h5>
-                            </a>
-                            <h6>
-                                <?php echo date('d/m/Y H:i', strtotime($note['tgl_note'])) ?>
-                            </h6>
-                            <p><?php echo $note['isi_note'] ?></p>
-                            
+                                <a href="?id_note=<?php echo $note['id_note'] ?>">
+                                    <h5 class="card-title float-none"><?php echo $note['judul_note'] ?></h5>
+                                </a><h6><?php echo date('d/m/Y H:i', strtotime($note['tgl_note'])) ?></h6>
+                                <p><?php echo $note['isi_note'] ?></p>
+                            </div>
                         </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
                 <div class="col-md-4">
                     <form action="create_notes.php" class="mt-3 position-fixed" method="post">
                         <input type="hidden" name="id_note" value="<?php echo $currentNote['id_note'] ?>">
-
                         <input type="text" name="judul_note" class="form-control text-secondary" autocomplete="off" value="<?php echo $currentNote['judul_note'] ?>" placeholder="Judul Note">
                         <div class="form-floating mt-3">
-
-                            <textarea name="isi_note" class="form-control form-control-lg text-secondary" placeholder="Leave a comment here" id="floatingTextarea2" value="<?php echo $currentNote['isi_note'] ?>"></textarea>
-                            <label for="floatingTextarea2 " class="text-secondary">Deskripsi Note</label>
+                            <textarea name="isi_note" class="form-control form-control-lg text-secondary" placeholder="Leave a comment here" id="floatingTextarea2"><?php echo $currentNote['isi_note'] ?></textarea>
+                            <label for="floatingTextarea2" class="text-secondary">Deskripsi Note</label>
                         </div>
                         <button class="btn btn-primary mt-3">
                             <?php if ($currentNote['id_note']): ?>
@@ -177,5 +168,4 @@ $sesUid = $_SESSION['uid'];
         })
     </script>
 </body>
-
 </html>
