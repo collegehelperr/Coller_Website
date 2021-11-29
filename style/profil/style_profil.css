@@ -61,6 +61,7 @@ main .card-body img {
   width: 210px;
   height: 210px;
   margin: 0 auto 50px auto;
+  border-radius: 50%;
 }
 
 main .card-body .profile-title {
