@@ -1,4 +1,9 @@
 <?php
+require ('koneksi.php');
+?>
+
+
+<?php
 
 /** @var Connection $connection */
 $connection = require_once 'pdo.php';
@@ -41,15 +46,20 @@ $sesUid = $_SESSION['uid'];
     <div class="container-1">
         <aside>
             <div class="pos">
-                <div class="top">
-                    <div class="profile">
-                        <img src="img/thumb_profile.png" alt="thumb profile">
-                        <div class="title align-self-center">
-                            <h2>Arlene McCoy</h2>
-                            <p>arln_coy@gmail.com</p>
-                        </div>
-                        <!-- <p>arln_coy@gmail.com</p> -->
-                    </div>
+            <div class="top">
+                <?php
+            $sql_kar = mysqli_query($koneksi, "SELECT * FROM user WHERE uid = '$sesUid' ");
+            while ($row = mysqli_fetch_array($sql_kar)){
+                echo '<div class="profile">
+                <img src="' . $row["profile_img"] . '" alt="thumb profile">
+                <div class="title align-self-center">
+                <h2>'. $row["nama_lengkap"] .'</h2>
+                <p>'. $row["email"] .'</p>
+                </div>
+                <!-- <p>arln_coy@gmail.com</p> -->
+            </div>';
+            }
+            ?>
                     <div class="close" id="close-btn">
                         <span class="material-icons-sharp">close</span>
                     </div>
