@@ -1,5 +1,6 @@
 <?php
 require ('koneksi.php');
+date_default_timezone_set("Asia/Kolkata"); 
 ?>
 
 <?php
@@ -13,6 +14,9 @@ if(!isset($_SESSION['uid'])){
 }
 $sesUid = $_SESSION['uid'];
 // $sesName = $_SESSION['nama_lengkap'];
+
+$hari = date('l');
+$hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'Rabu', 'Thursday' => 'Kamis', 'Friday' => 'Jumat', 'Saturday' => 'Sabtu', 'Sunday' => 'Minggu');
 
 ?>
 
@@ -92,9 +96,16 @@ $sesUid = $_SESSION['uid'];
             <div class="card mt-5">
                 <div class="card-body">
                     <h5 class="card-title">Jadwalmu hari ini</h5>
-                    <a href="schedule.html">
-                        <img src="img/ic_next.png" class="ic-next  float-end" alt="icon next">
+                    <?php
+                    $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ");
+                    echo '<a href="schedule.php?hari='.$hari_indo[$hari].'">
+                    <img src="img/ic_next.png" class="ic-next  float-end" alt="icon next">
                     </a>
+                    
+                    ';
+                
+                    ?>
+
                     <hr>
                     <div class="card-text">
                         <div class="row">
@@ -105,30 +116,20 @@ $sesUid = $_SESSION['uid'];
                                 <h6>Mata Kuliah</h6>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>8:00 - 10:00</p>
-                            </div>
-                            <div class="col col-md-8">
-                                <p>Interaksi Manusia & Komputer</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>10:00 - 12:00</p>
-                            </div>
-                            <div class="col col-md-8">
-                                <p>P3L</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p>13:00 - 15:00</p>
-                            </div>
-                            <div class="col col-md-8">
-                                <p>Struktur Data</p>
-                            </div>
-                        </div>
+                        <?php
+                        $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ");
+                        while ($row = mysqli_fetch_array($sql_kar)){
+                            echo 
+                            '<div class="row">
+                                <div class="col">
+                                    <p>'. $row["waktu_mulai"] .' - '. $row["waktu_berakhir"] .'</p>
+                                </div>
+                                <div class="col col-md-8">
+                                    <p>'. $row["nama_schedule"] .'</p>
+                                </div>
+                            </div>';
+                        }
+                       ?>
                     </div>
                 </div>
             </div>
@@ -200,7 +201,11 @@ $sesUid = $_SESSION['uid'];
                 <button id="menu-btn">
                     <span class="material-icons-sharp">menu</span>
                 </button>
-                <p class="text-end">13 November 2021</p>
+                <?php
+                $today = date(" j F Y ");
+                echo 
+                '<p class="text-end">'.$today.'</p>';
+                ?>
             </div>
             <div class="to-do-list">
                 <div class="card">
