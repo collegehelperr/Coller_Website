@@ -17,7 +17,7 @@ $sesUid = $_SESSION['uid'];
 
 $hari = date('l');
 $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'Rabu', 'Thursday' => 'Kamis', 'Friday' => 'Jumat', 'Saturday' => 'Sabtu', 'Sunday' => 'Minggu');
-
+$sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ");
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +97,6 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                 <div class="card-body">
                     <h5 class="card-title">Jadwalmu hari ini</h5>
                     <?php
-                    $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ");
                     echo '<a href="schedule.php?hari='.$hari_indo[$hari].'">
                     <img src="img/ic_next.png" class="ic-next  float-end" alt="icon next">
                     </a>
