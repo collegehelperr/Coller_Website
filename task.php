@@ -13,28 +13,12 @@ if(!isset($_SESSION['uid'])){
 }
 $sesUid = $_SESSION['uid'];
 
-$sesUid = $_SESSION['uid'];
-$query = "SELECT * FROM user WHERE uid='$sesUid'";
-$result = mysqli_query($koneksi, $query) or die (mysql_error());
-while ($row = mysqli_fetch_array($result)){
-    $uid = $row['uid'];
-    $userMail = $row['email'];
-    $userPass = $row['password'];
-    $userName = $row['nama_lengkap'];
-    $userNo = $row['no_hp'];
-}
-
 if ( isset($_POST['submit']) ){
-    $id_jenis = $_POST ['id_jenis'];
-    if ($id_jenis == "Quiz") {
-        $id_jenis = 1;
-    } else {
-        $id_jenis = 2;
-    }
+    $id_jenis = $_POST['id_jenis'];
     $tgl_ddline = $_POST ['tgl_ddline'];
     $detail_task = $_POST ['detail_task'];
 
-    $query = "INSERT INTO college_task VALUES ('','$id_jenis','."date("Y-m-d H:i:s")."','$detail_task')";
+    $query = "INSERT INTO `college_task` (`id_task`, `uid`, `detail_task`, `tgl_ddline`, `status`, `id_jenis`) VALUES (NULL, '$sesUid', '$detail_task', '$tgl_ddline', '0', '$id_jenis');";
     $result = mysqli_query($koneksi, $query);
     header('Location: task.php');
 }
@@ -142,132 +126,46 @@ if ( isset($_POST['submit']) ){
 
             <!-- section menu -->
             <div class="row">
-                <div class="col-md-8">
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
-                            <div class="form-check mb-1">
-                                <?php
-                                while ($row = mysqli_fetch_array($sql_kar)){
-                                    echo'
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">'. $row["id_jenis"] .'</label>
-                                    </div>
-                                    <div class="row m-0">
-                                    <div class="col">
-                                    <p class="mt-1 mb-2">'. $row["detail_task"] .'</p>
-                                    </div>
-                                    <div class="col-auto align-self-center">'. ' Y/m/d H:i', strtotime ($row['tgl_ddline']) .'
-                                    </div>
-                                    ';
-                                }
-                                ?>
-                                </div>
-                            </div>
-                        </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                                </label>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col">
-                                    <p class="mt-1 mb-2">Laporan praktikum minggu 12 Workshop Mobile</p>
-                                </div>
-                                <div class="col-auto align-self-center">
-                                    <small>13/10/2021</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                                </label>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col">
-                                    <p class="mt-1 mb-2">Laporan praktikum minggu 12 Workshop Mobile</p>
-                                </div>
-                                <div class="col-auto align-self-center">
-                                    <small>13/10/2021</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                                </label>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col">
-                                    <p class="mt-1 mb-2">Laporan praktikum minggu 12 Workshop Mobile</p>
-                                </div>
-                                <div class="col-auto align-self-center">
-                                    <small>13/10/2021</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                                </label>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col">
-                                    <p class="mt-1 mb-2">Laporan praktikum minggu 12 Workshop Mobile</p>
-                                </div>
-                                <div class="col-auto align-self-center">
-                                    <small>13/10/2021</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                                </label>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col">
-                                    <p class="mt-1 mb-2">Laporan praktikum minggu 12 Workshop Mobile</p>
-                                </div>
-                                <div class="col-auto align-self-center">
-                                    <small>13/10/2021</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-8">            
+                            <?php
+                                $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_task WHERE uid='$sesUid' ");
+                                while ($row = mysqli_fetch_array($sql_kar)){       
+                                    $id_jenis = $row['id_jenis'];
+                                    if($id_jenis == 1){
+                                        $id_jenis = 'Quiz';
+                                    } else {
+                                        $id_jenis = 'Assignment';
+                                    }                           
+                                    echo
+                                    '<div class="card mb-3">
+                                        <div class="card-body">
+                                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
+                                            <div class="form-check mb-1">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                '.$id_jenis.'
+                                                </label>
+                                            </div>
+                                            <div class="row m-0">
+                                                <div class="col">
+                                                    <p class="mt-1 mb-2">'.$row["detail_task"].'</p>
+                                                </div>
+                                                <div class="col-auto align-self-center">
+                                                    <small>'.$row['tgl_ddline'].'</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>';
+                                }                        
+                            ?>                                                    
                 </div>
 
                 <div class="col-md-4">
                     <form action="task.php" method="POST" class="mt-3 position-fixed">
                         <div class="mb-3">
                             <select id="typeTaskSelect" class="form-select text-secondary" name="id_jenis">
-                                <option value="1">Assignment</option>
-                                <option value="2">Task</option>
+                                <option value="1">Quiz</option>
+                                <option value="2">Assignment</option>
                             </select>
                         </div>
                         <input type="date" class="form-control text-secondary mb-3" id="task-deadline" name="tgl_ddline">
