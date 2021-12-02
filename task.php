@@ -139,7 +139,7 @@ if ( isset($_POST['submit']) ){
                                     echo
                                     '<div class="card mb-3">
                                         <div class="card-body">
-                                            <img src="img/Close_square.png" class="float-end" alt="ic_close">
+                                            <a href="delete_task.php?id_task='.$row["id_task"].'"><img src="img/Close_square.png" class="float-end" alt="ic_close"></a>
                                             <div class="form-check mb-1">
                                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                                 <label class="form-check-label" for="flexCheckDefault">
