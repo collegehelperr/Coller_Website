@@ -66,9 +66,9 @@ if ( isset($_POST['submit']) ){
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#">
+                    <a href="random_picker">
                         <span class="material-icons-sharp">pie_chart</span>
-                        <h3>Wheel Spinner</h3>
+                        <h3>Random Picker</h3>
                     </a>
                     <a href="college.php" class="active">
                         <span class="material-icons-sharp">school</span>

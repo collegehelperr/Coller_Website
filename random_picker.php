@@ -73,7 +73,7 @@ while ($row = mysqli_fetch_array($result)){
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#"  class="active">
+                    <a href="random_picker.php"  class="active">
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Random Picker</h3>
                     </a>

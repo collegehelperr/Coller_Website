@@ -70,16 +70,16 @@ while ($row = mysqli_fetch_array($result)){
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#">
+                    <a href="random_picker">
                         <span class="material-icons-sharp">pie_chart</span>
-                        <h3>Wheel Spinner</h3>
+                        <h3>Random Picker</h3>
                     </a>
                     <a href="college.php">
                         <span class="material-icons-sharp">school</span>
                         <h3>College Management</h3>
                     </a>
                     <hr>
-                    <a href="profil.html" class="active">
+                    <a href="profil.php" class="active">
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>
