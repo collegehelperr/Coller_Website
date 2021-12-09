@@ -143,7 +143,14 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                     <a href="todolist.php">
                         <div class="card card-3">
                             <div class="row card-body">
-                                <h1 class="col-3 card-title">4</h5>
+                            <h1 class="col-3 card-title">
+                                    <?php
+                                $query = "SELECT * FROM college_todolist WHERE uid='$sesUid' ";
+                                $result = mysqli_query($koneksi, $query) or die (mysql_error());
+                                $total_schedule = mysqli_num_rows($result);
+                                echo $total_schedule;
+                                    ?>
+                                </h5>
                                     <div class="col card-content my-auto">
                                         <h3>To do list</h3>
                                         <p>Belum terselesaikan</p>
