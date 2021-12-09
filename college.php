@@ -23,6 +23,9 @@ while ($row = mysqli_fetch_array($result)){
     $userName = $row['nama_lengkap'];
     $userNo = $row['no_hp'];
 }
+
+$hari = date('l');
+$hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'Rabu', 'Thursday' => 'Kamis', 'Friday' => 'Jumat', 'Saturday' => 'Sabtu', 'Sunday' => 'Minggu');
 ?>
 
 
@@ -71,9 +74,9 @@ while ($row = mysqli_fetch_array($result)){
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="random_picker.php">
+                    <a href="#">
                         <span class="material-icons-sharp">pie_chart</span>
-                        <h3>Random Picker</h3>
+                        <h3>Wheel Spinner</h3>
                     </a>
                     <a href="college.php" class="active">
                         <span class="material-icons-sharp">school</span>
@@ -122,7 +125,7 @@ while ($row = mysqli_fetch_array($result)){
                             <div class="row card-body">
                                 <h1 class="col-3 card-title">
                                     <?php
-                                $query = "SELECT * FROM college_schedule WHERE uid = $sesUid";
+                                $query = "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ";
                                 $result = mysqli_query($koneksi, $query) or die (mysql_error());
                                 $total_schedule = mysqli_num_rows($result);
                                 echo $total_schedule;
@@ -137,7 +140,7 @@ while ($row = mysqli_fetch_array($result)){
                     </a>
                 </div>
                 <div class="col">
-                    <a href="todolist.html">
+                    <a href="todolist.php">
                         <div class="card card-3">
                             <div class="row card-body">
                                 <h1 class="col-3 card-title">4</h5>
@@ -194,7 +197,7 @@ while ($row = mysqli_fetch_array($result)){
                             </a>
                         </div>
                         <div class="col">
-                            <a href="todolist.html">
+                            <a href="todolist.php">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="img/ic_todolist.png" alt="ic_note">
