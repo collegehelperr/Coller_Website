@@ -20,6 +20,14 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
 $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ");
 ?>
 
+<?php
+
+/** @var Connection $connection */
+$connection = require_once 'db_conn.php';
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,9 +72,9 @@ $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="random_picker.php">
+                    <a href="#">
                         <span class="material-icons-sharp">pie_chart</span>
-                        <h3>Random Picker</h3>
+                        <h3>Wheel Spinner</h3>
                     </a>
                     <a href="college.php">
                         <span class="material-icons-sharp">school</span>
@@ -214,7 +222,7 @@ $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '
                             <div class="outer">
                                 <div class="inner">
                                     <div id="number">
-                                        65%
+                                        100%
                                         <span>
                                             selesai
                                         </span>
@@ -232,36 +240,28 @@ $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '
                                 </svg>
                         </div>
                         <h5 class="card-title-2 mt-4">To do list</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <?php
+            $todos = $conn->query("SELECT * FROM college_todolist WHERE uid= $sesUid");
+            ?>
+                <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
+                        <?php if ($todo['status']) { ?>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>" checked>
                             <label class="form-check-label" for="flexCheckDefault">
-                                Belajar implementasi fragment
+                            <?php echo $todo['nama_todolist'] ?>
                             </label>
                             <hr>
                         </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <?php } else { ?>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>">
                             <label class="form-check-label" for="flexCheckDefault">
-                                Belajar implementasi stack
+                            <?php echo $todo['nama_todolist'] ?>
                             </label>
                             <hr>
                         </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Belajar implementasi linked list 
-                            </label>
-                            <hr>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Belajar dasar-dasar PHP 
-                            </label>
-                        </div>
+                        <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
                 <!-- <h2>Progress</h2>
@@ -269,7 +269,7 @@ $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '
             </div>
         </div>
     </div>
-
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
         const sideMenu = document.querySelector("aside");
@@ -295,6 +295,27 @@ $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '
                 number.innerHTML = counter + "%";
             }
         }, 30);
+
+        $(document).ready(function() {
+        $(".form-check-input").click(function(e) {
+                const id = $(this).attr('data-todo-id');
+
+                $.post('app/check.php', {
+                        id: id
+                    },
+                    (data) => {
+                        if (data != 'error') {
+                            const h2 = $(this).next();
+                            if (data === '1') {
+                                h2.removeClass('checked');
+                            } else {
+                                h2.addClass('checked');
+                            }
+                        }
+                    }
+                );
+            });
+        });
     </script>
 </body>
 
