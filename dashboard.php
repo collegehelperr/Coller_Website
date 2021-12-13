@@ -42,6 +42,10 @@ $connection = require_once 'db_conn.php';
     <link rel="stylesheet" href="style/dashboard/style.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- progress bar -->
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="Dynamic-Circular-Progress-Bar-with-jQuery-CSS3/jQuery-plugin-progressbar.css">
 </head>
 
 <body>
@@ -218,27 +222,13 @@ $connection = require_once 'db_conn.php';
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Progress</h5>
-                        <div class="skill">
-                            <div class="outer">
-                                <div class="inner">
-                                    <div id="number">
-                                        100%
-                                        <span>
-                                            selesai
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200px" height="200px">
-                                    <defs>
-                                        <linearGradient id="GradientColor">
-                                        <stop offset="0%" stop-color="#e91e63" />
-                                        <stop offset="100%" stop-color="#673ab7" />
-                                        </linearGradient>
-                                    </defs>
-                                    <circle cx="100" cy="100" r="90" stroke-linecap="round" />
-                                </svg>
-                        </div>
+
+                        <!-- 
+                            Progress Bar 
+                            "data-percent" bisa dibuat dinamis dengan php
+                        -->
+                        <div class="progress-bar mx-auto" data-percent="80" data-duration="1000" data-color="#ccc,#C957FF"></div>
+                        
                         <h5 class="card-title-2 mt-4">To do list</h5>
                         <?php
             $todos = $conn->query("SELECT * FROM college_todolist WHERE uid= $sesUid");
@@ -269,8 +259,10 @@ $connection = require_once 'db_conn.php';
             </div>
         </div>
     </div>
-    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="Dynamic-Circular-Progress-Bar-with-jQuery-CSS3/jQuery-plugin-progressbar.js"></script>
     <script>
         const sideMenu = document.querySelector("aside");
         const menuBtn = document.querySelector("#menu-btn");
@@ -285,37 +277,7 @@ $connection = require_once 'db_conn.php';
         })
 
         // progress
-        let number = document.getElementById("number");
-        let counter = 0;
-        setInterval(() => {
-            if (counter == 65) {
-                clearInterval();
-            } else {
-                counter += 1;
-                number.innerHTML = counter + "%";
-            }
-        }, 30);
-
-        $(document).ready(function() {
-        $(".form-check-input").click(function(e) {
-                const id = $(this).attr('data-todo-id');
-
-                $.post('app/check.php', {
-                        id: id
-                    },
-                    (data) => {
-                        if (data != 'error') {
-                            const h2 = $(this).next();
-                            if (data === '1') {
-                                h2.removeClass('checked');
-                            } else {
-                                h2.addClass('checked');
-                            }
-                        }
-                    }
-                );
-            });
-        });
+        $(".progress-bar").loading();
     </script>
 </body>
 
