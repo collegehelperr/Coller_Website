@@ -130,17 +130,21 @@ $connection = require_once 'db_conn.php';
                         <?php
                         $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ");
                         while ($row = mysqli_fetch_array($sql_kar)){
+                            $waktu_berakhir = $row["waktu_berakhir"];
+                            $waktu_mulai = $row["waktu_mulai"];
+                            $new_wmulai =  mb_strimwidth($waktu_mulai, 0, 5);
+                            $new_wberakhir =  mb_strimwidth($waktu_berakhir, 0, 5);
                             echo 
                             '<div class="row">
                                 <div class="col">
-                                    <p>'. $row["waktu_mulai"] .' - '. $row["waktu_berakhir"] .'</p>
+                                    <p>' .$new_wmulai. ' - '. $new_wberakhir .'</p>
                                 </div>
                                 <div class="col col-md-8">
                                     <p>'. $row["nama_schedule"] .'</p>
                                 </div>
                             </div>';
                         }
-                       ?>
+                    ?>
                     </div>
                 </div>
             </div>
@@ -277,6 +281,27 @@ $connection = require_once 'db_conn.php';
 
         // progress
         $(".progress-bar").loading();
+
+        $(document).ready(function() {
+        $(".form-check-input").click(function(e) {
+                const id = $(this).attr('data-todo-id');
+
+                $.post('app/check.php', {
+                        id: id
+                    },
+                    (data) => {
+                        if (data != 'error') {
+                            const h2 = $(this).next();
+                            if (data === '1') {
+                                h2.removeClass('checked');
+                            } else {
+                                h2.addClass('checked');
+                            }
+                        }
+                    }
+                );
+            });
+         });
     </script>
 </body>
 

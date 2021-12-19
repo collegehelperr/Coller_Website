@@ -252,14 +252,18 @@ if ( isset($_POST['submit']) ){
             $hari = $_GET ['hari'];
             $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari' AND uid='$sesUid' ");
             while ($row = mysqli_fetch_array($sql_kar)){
-                echo'
-                <div class="row text-secondary">
-                <div class="col-4">
-                    <p>'. $row["waktu_mulai"] .' - '. $row["waktu_berakhir"] .'</p>
-                </div>
-                <div class="col-6">
-                    <p>'. $row["nama_schedule"] .'</p>
-                </div>
+                $waktu_berakhir = $row["waktu_berakhir"];
+                $waktu_mulai = $row["waktu_mulai"];
+                $new_wmulai =  mb_strimwidth($waktu_mulai, 0, 5);
+                $new_wberakhir =  mb_strimwidth($waktu_berakhir, 0, 5);
+                echo '
+    <div class="row text-secondary">
+    <div class="col-4">
+        <p>' . $new_wmulai . ' - ' . $new_wberakhir . '</p>
+    </div>
+    <div class="col-6">
+        <p>' . $row["nama_schedule"] . '</p>
+    </div>
                 
                 <div class="col-2">
                 <a href="delete_schedule.php?id_schedule='.$row["id_schedule"].'&hari='.$row["hari"].'"><img src="img/Close_square.png" class="float-end" alt="ic_close"></a>

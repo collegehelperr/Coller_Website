@@ -120,7 +120,9 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                     </a>
                 </div>
                 <div class="col">
-                    <a href="schedule.php?hari=Senin">
+                <?php
+                     echo '<a href="schedule.php?hari='.$hari_indo[$hari].'">'
+                    ?>
                         <div class="card card-2">
                             <div class="row card-body">
                                 <h1 class="col-3 card-title">
