@@ -1,6 +1,6 @@
 $circle-size: 200px;
-$background-color: #b3cef6;
-$progress-color: #4b86db;
+$background-color: rgb(0, 0, 0);
+$progress-color: #C957FF;
 $percent: 75;
 $duration: 2s;
 .position {
@@ -12,6 +12,7 @@ $duration: 2s;
     position: relative;
     height: $circle-size;
     width: $circle-size;
+    background-color: rgb(0, 0, 0);
     div {
         position: absolute;
         height: $circle-size;
@@ -28,7 +29,7 @@ $duration: 2s;
             top: $circle-size / 8;
             text-align: center;
             border-radius: 50%;
-            background-color: white;
+            background-color: rgb(0, 0, 0);
         }
     }
     .background {
