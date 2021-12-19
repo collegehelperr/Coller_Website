@@ -9,7 +9,7 @@ if ( isset($_POST['register']) ){
     $userNo = $_POST['nomor_telepon'];
 
     if($userPass == $userConPass){
-    $query = "INSERT INTO user VALUES ('', '$userMail', '$userPass', '$userConPass', '$userName', '$userNo','https://i0.wp.com/lia-martadinata.com/wp-content/uploads/2019/11/iconfinder-8-avatar-2754583_120515.png?ssl=1')";
+    $query = "INSERT INTO user VALUES ('', '$userMail', '$userPass', '$userName', '$userNo','https://i0.wp.com/lia-martadinata.com/wp-content/uploads/2019/11/iconfinder-8-avatar-2754583_120515.png?ssl=1')";
     $result = mysqli_query($koneksi, $query);
     if($result){
             echo "<script>alert('Berhasil Mendaftar.')</script>";
