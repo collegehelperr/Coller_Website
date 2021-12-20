@@ -107,7 +107,6 @@ if ( isset($_POST['submit']) ){
                     </nav>
                 </div>
             </div>
-
             <!-- section filter -->
             <section class="section-filter text-light row">
                 <div class="col-md-2 col-sm align-self-center">
@@ -128,7 +127,9 @@ if ( isset($_POST['submit']) ){
             <div class="row">
                 <div class="col-md-8">            
                             <?php
-                                $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_task WHERE uid='$sesUid' ");
+                                $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_task WHERE uid='$sesUid' ");?>
+                                 <?php while ($task = $sql_kar->fetch(PDO::FETCH_ASSOC)) { ?>
+                                <?php
                                 while ($row = mysqli_fetch_array($sql_kar)){       
                                     $id_jenis = $row['id_jenis'];
                                     if($id_jenis == 1){
@@ -141,10 +142,25 @@ if ( isset($_POST['submit']) ){
                                         <div class="card-body">
                                             <a href="delete_task.php?id_task='.$row["id_task"].'"><img src="img/Close_square.png" class="float-end" alt="ic_close"></a>
                                             <div class="form-check mb-1">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                '.$id_jenis.'
-                                                </label>
+                                                
+                                                <?php 
+                                                if ($todo['status']) { ?>
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $sql_kar['id_task']; ?>" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                    <?php echo $--- ['---'] ?>
+                                                    </label>
+                                                    <?php } 
+                                                    else { ?>
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_task']; ?>">
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                        <?php echo $----['---'] ?>
+                                                        </label>
+                                                        <?php } ?>
+
+                                                //  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                //  <label class="form-check-label" for="flexCheckDefault">
+                                                //  '.$id_jenis.'
+                                                // </label>
                                             </div>
                                             <div class="row m-0">
                                                 <div class="col">
@@ -186,19 +202,57 @@ if ( isset($_POST['submit']) ){
         </main>
         </div>
 
-        <script>
-            // for mobile responsive
-            const sideMenu = document.querySelector("aside");
-            const menuBtn = document.querySelector("#menu-btn");
-            const closeBtn = document.querySelector("#close-btn");
+         <script src="js/jquery-3.2.1.min.js"></script>
 
-            menuBtn.addEventListener('click', () => {
-                sideMenu.style.display = 'block';
-            })
+    <script>
+        $(document).ready(function() {
+            $('.float-end').click(function() {
+                const id = $(this).attr('id');
 
-            closeBtn.addEventListener('click', () => {
-                sideMenu.style.display = 'none';
-            })
-        </script>
+                $.post("app/remove.php", {
+                        id: id
+                    },
+                    (data) => {
+                        if (data) {
+                            $(this).parent().hide(500);
+                        }
+                    }
+                );
+            });
+
+            $(".form-check-input").click(function(e) {
+                const id = $(this).attr('data-todo-id');
+
+                $.post('app/check.php', {
+                        id: id
+                    },
+                    (data) => {
+                        if (data != 'error') {
+                            const h2 = $(this).next();
+                            if (data === '1') {
+                                h2.removeClass('checked');
+                            } else {
+                                h2.addClass('checked');
+                            }
+                        }
+                    }
+                );
+            });
+
+
+        });
+        // for mobile responsive
+        const sideMenu = document.querySelector("aside");
+        const menuBtn = document.querySelector("#menu-btn");
+        const closeBtn = document.querySelector("#close-btn");
+
+        menuBtn.addEventListener('click', () => {
+            sideMenu.style.display = 'block';
+        })
+
+        closeBtn.addEventListener('click', () => {
+            sideMenu.style.display = 'none';
+        })
+    </script>
 </body>
 </html>
