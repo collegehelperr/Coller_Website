@@ -1,6 +1,6 @@
-$circle-size: 200px;
-$background-color: rgb(0, 0, 0);
-$progress-color: #C957FF;
+$circle-size: 100px;
+$background-color: #b3cef6;
+$progress-color: #4b86db;
 $percent: 75;
 $duration: 2s;
 .position {
@@ -12,7 +12,6 @@ $duration: 2s;
     position: relative;
     height: $circle-size;
     width: $circle-size;
-    background-color: transparent;
     div {
         position: absolute;
         height: $circle-size;
