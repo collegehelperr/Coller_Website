@@ -1,6 +1,6 @@
-$circle-size: 100px;
-$background-color: #b3cef6;
-$progress-color: #4b86db;
+$circle-size: 200px;
+$background-color: #242830;
+$progress-color: #000000;
 $percent: 75;
 $duration: 2s;
 .position {
@@ -12,6 +12,7 @@ $duration: 2s;
     position: relative;
     height: $circle-size;
     width: $circle-size;
+    background-color: transparent;
     div {
         position: absolute;
         height: $circle-size;
@@ -20,7 +21,7 @@ $duration: 2s;
         span {
             position: absolute;
             font-family: Arial;
-            font-size: $circle-size / 4;
+            font-size: $circle-size / 5;
             line-height: $circle-size / 4 * 3;
             height: $circle-size / 4 * 3;
             width: $circle-size / 4 * 3;
