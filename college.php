@@ -147,7 +147,7 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                             <div class="row card-body">
                             <h1 class="col-3 card-title">
                                     <?php
-                                $query = "SELECT * FROM college_todolist WHERE uid='$sesUid' ";
+                                $query = "SELECT * FROM college_todolist WHERE uid='$sesUid' AND status = 0";
                                 $result = mysqli_query($koneksi, $query) or die (mysql_error());
                                 $total_schedule = mysqli_num_rows($result);
                                 echo $total_schedule;

@@ -18,6 +18,16 @@ $sesUid = $_SESSION['uid'];
 $hari = date('l');
 $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'Rabu', 'Thursday' => 'Kamis', 'Friday' => 'Jumat', 'Saturday' => 'Sabtu', 'Sunday' => 'Minggu');
 $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_schedule WHERE hari = '$hari_indo[$hari]' AND uid='$sesUid' ");
+
+$query_tdl = "SELECT * FROM college_todolist WHERE uid='$sesUid'";
+$result_tdl = mysqli_query($koneksi, $query_tdl);
+$total_schedule = mysqli_num_rows($result_tdl);
+
+$query_tdl2 = "SELECT * FROM college_todolist WHERE uid='$sesUid' AND status = 1 ";
+$result_tdl2 = mysqli_query($koneksi, $query_tdl2);
+$total_schedule2 = mysqli_num_rows($result_tdl2);
+
+$persentase_bar = ($total_schedule2/$total_schedule) * 100;
 ?>
 
 <?php
@@ -231,7 +241,7 @@ $connection = require_once 'db_conn.php';
                             Progress Bar 
                             "data-percent" bisa dibuat dinamis dengan php
                         -->
-                        <div class="progress-bar mx-auto" data-percent="80" data-duration="1000" data-color="#ccc,#C957FF"></div>
+                        <div class="progress-bar mx-auto" data-percent="<?php  echo $persentase_bar; ?>" data-duration="1000" data-color="#ccc,#C957FF"></div>
                         
                         <h5 class="card-title-2 mt-4">To do list</h5>
                         <?php
@@ -240,7 +250,7 @@ $connection = require_once 'db_conn.php';
                 <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
                         <?php if ($todo['status']) { ?>
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>" checked>
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="reload()" data-todo-id="<?php echo $todo['id_todolist']; ?>" checked>
                             <label class="form-check-label" for="flexCheckDefault">
                             <?php echo $todo['nama_todolist'] ?>
                             </label>
@@ -248,7 +258,7 @@ $connection = require_once 'db_conn.php';
                         </div>
                         <?php } else { ?>
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="reload()" data-todo-id="<?php echo $todo['id_todolist']; ?>">
                             <label class="form-check-label" for="flexCheckDefault">
                             <?php echo $todo['nama_todolist'] ?>
                             </label>
@@ -270,6 +280,10 @@ $connection = require_once 'db_conn.php';
         const sideMenu = document.querySelector("aside");
         const menuBtn = document.querySelector("#menu-btn");
         const closeBtn = document.querySelector("#close-btn");
+
+        function reload(){
+            location.reload();
+        }
 
         menuBtn.addEventListener('click', () => {
             sideMenu.style.display = 'block';
