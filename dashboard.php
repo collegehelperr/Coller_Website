@@ -163,7 +163,7 @@ $connection = require_once 'db_conn.php';
             <div class="card mt-4 mb-5">
                 <div class="card-body">
                     <h5 class="card-title">Task terdekatmu</h5>
-                    <a href="#">
+                    <a href="task.php">
                         <img src="img/ic_next.png" class="ic-next  float-end" alt="icon next">
                     </a>
                     <hr>
