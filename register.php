@@ -52,21 +52,21 @@ if ( isset($_POST['register']) ){
             <div class="col register-right position-relative">
                 <form action="register.php" method="POST" class="box">
                     <div class="mb-4">
-                        <input type="email" id="email" name="email" required class="form-control" placeholder="Email">
+                        <input type="email" id="email" name="email" required class="form-control text-light" placeholder="Email">
                     </div>
                     <div class="mb-4">
-                        <input type="password" name="password" required class="form-control" placeholder="Password">
+                        <input type="password" name="password" required class="form-control text-light" placeholder="Password">
                     </div>
                     <div class="mb-4">
-                        <input type="password" name="conpass" required class="form-control" placeholder="Konfirmasi Password">
+                        <input type="password" name="conpass" required class="form-control text-light" placeholder="Konfirmasi Password">
                     </div>
                     <div><center>tentang kamu</center></div>
                     <p></p>
                     <div class="mb-4">
-                        <input type="text" name="nama_lengkap" required class="form-control" placeholder="Nama Lengkap">
+                        <input type="text" name="nama_lengkap" required class="form-control text-light" placeholder="Nama Lengkap">
                     </div>
                     <div class="mb-4">
-                        <input type="text" name="nomor_telepon" required class="form-control" placeholder="No Telepon">
+                        <input type="text" name="nomor_telepon" required class="form-control text-light" placeholder="No Telepon">
                     </div>
                     <p class="login-at-register text-center">Sudah memiliki akun? <a href="login.php">Masuk</a></p>
                     <button type="submit" name="register" class="btn btn-primary container-fluid">Daftar</button>
