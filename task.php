@@ -1,5 +1,7 @@
 <?php
 require ('koneksi.php');
+/** @var Connection $connection */
+$connection = require_once 'db_conn.php';
 ?>
 
 <?php
@@ -107,6 +109,7 @@ if ( isset($_POST['submit']) ){
                     </nav>
                 </div>
             </div>
+
             <!-- section filter -->
             <section class="section-filter text-light row">
                 <div class="col-md-2 col-sm align-self-center">
@@ -127,51 +130,49 @@ if ( isset($_POST['submit']) ){
             <div class="row">
                 <div class="col-md-8">            
                             <?php
-                                $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_task WHERE uid='$sesUid' ");?>
-                                 <?php while ($task = $sql_kar->fetch(PDO::FETCH_ASSOC)) { ?>
-                                <?php
-                                while ($row = mysqli_fetch_array($sql_kar)){       
+                                $query_task = $conn->query("SELECT * FROM college_task WHERE uid='$sesUid'");                         
+                                while($row = $query_task->fetch(PDO::FETCH_ASSOC)){
                                     $id_jenis = $row['id_jenis'];
                                     if($id_jenis == 1){
                                         $id_jenis = 'Quiz';
                                     } else {
                                         $id_jenis = 'Assignment';
-                                    }                           
-                                    echo
-                                    '<div class="card mb-3">
+                                    }  
+                            ?>                         
+                                    <div class="card mb-3">
                                         <div class="card-body">
-                                            <a href="delete_task.php?id_task='.$row["id_task"].'"><img src="img/Close_square.png" class="float-end" alt="ic_close"></a>
+                                            <a href="delete_task.php?id_task=<?php echo $row["id_task"];?>"><img src="img/Close_square.png" class="float-end" alt="ic_close"></a>
                                             <div class="form-check mb-1">
+                                                <?php
+                                                if ($row["status"]){ 
+                                                ?>
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-task-id="<?php echo $row["id_task"];?>" checked>
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                <?php echo $id_jenis;?>
+                                                </label>
+                                                <?php
+                                                } else { 
+                                                ?>
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-task-id="<?php echo $row["id_task"];?>">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                <?php echo $id_jenis;?>
+                                                </label>
+                                                <?php
+                                                }
+                                                ?>
                                                 
-                                                <?php 
-                                                if ($todo['status']) { ?>
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $sql_kar['id_task']; ?>" checked>
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                    <?php echo $--- ['---'] ?>
-                                                    </label>
-                                                    <?php } 
-                                                    else { ?>
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_task']; ?>">
-                                                        <label class="form-check-label" for="flexCheckDefault">
-                                                        <?php echo $----['---'] ?>
-                                                        </label>
-                                                        <?php } ?>
-
-                                                //  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                //  <label class="form-check-label" for="flexCheckDefault">
-                                                //  '.$id_jenis.'
-                                                // </label>
                                             </div>
                                             <div class="row m-0">
                                                 <div class="col">
-                                                    <p class="mt-1 mb-2">'.$row["detail_task"].'</p>
+                                                    <p class="mt-1 mb-2"><?php echo $row["detail_task"];?></p>
                                                 </div>
                                                 <div class="col-auto align-self-center">
-                                                    <small>'.$row['tgl_ddline'].'</small>
+                                                    <small><?php echo $row['tgl_ddline'];?></small>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>';
+                                    </div>
+                            <?php
                                 }                        
                             ?>                                                    
                 </div>
@@ -202,32 +203,17 @@ if ( isset($_POST['submit']) ){
         </main>
         </div>
 
-         <script src="js/jquery-3.2.1.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('.float-end').click(function() {
-                const id = $(this).attr('id');
-
-                $.post("app/remove.php", {
-                        id: id
-                    },
-                    (data) => {
-                        if (data) {
-                            $(this).parent().hide(500);
-                        }
-                    }
-                );
-            });
-
-            $(".form-check-input").click(function(e) {
-                const id = $(this).attr('data-todo-id');
-
-                $.post('app/check.php', {
-                        id: id
-                    },
-                    (data) => {
-                        if (data != 'error') {
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".form-check-input").click(function(e) {
+                    const id = $(this).attr("data-task-id");
+                    
+                    $.post('app/task_status.php', {
+                            id:id
+                        }, 
+                        (data) => {
+                            if (data != 'error') {
                             const h2 = $(this).next();
                             if (data === '1') {
                                 h2.removeClass('checked');
@@ -235,24 +221,22 @@ if ( isset($_POST['submit']) ){
                                 h2.addClass('checked');
                             }
                         }
-                    }
-                );
+                        })
+                });
             });
+            
+            // for mobile responsive
+            const sideMenu = document.querySelector("aside");
+            const menuBtn = document.querySelector("#menu-btn");
+            const closeBtn = document.querySelector("#close-btn");
 
+            menuBtn.addEventListener('click', () => {
+                sideMenu.style.display = 'block';
+            })
 
-        });
-        // for mobile responsive
-        const sideMenu = document.querySelector("aside");
-        const menuBtn = document.querySelector("#menu-btn");
-        const closeBtn = document.querySelector("#close-btn");
-
-        menuBtn.addEventListener('click', () => {
-            sideMenu.style.display = 'block';
-        })
-
-        closeBtn.addEventListener('click', () => {
-            sideMenu.style.display = 'none';
-        })
-    </script>
+            closeBtn.addEventListener('click', () => {
+                sideMenu.style.display = 'none';
+            })
+        </script>
 </body>
 </html>
