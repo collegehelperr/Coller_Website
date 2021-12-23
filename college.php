@@ -195,7 +195,7 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                     </div>
                     <div class="row mt-md-3">
                         <div class="col">
-                            <a href="task.html">
+                            <a href="task.php">
                                 <div class="card">
                                     <div class="card-body">
                                         <img src="img/ic_task.png" alt="ic_note">
