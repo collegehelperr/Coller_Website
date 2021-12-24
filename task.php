@@ -39,7 +39,11 @@ if ( isset($_POST['submit']) ){
     <link rel="stylesheet" href="style/dashboard/style.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/task/style_task.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container-1">
@@ -112,22 +116,12 @@ if ( isset($_POST['submit']) ){
 
             <!-- section filter -->
             <section class="section-filter text-light row">
-                <div class="col-md-2 col-sm align-self-center">
-                    <h5 class="mb-0">Tampilkan : </h5>
-                </div>
-                <div class="col-md-10 col-sm d-md-flex justify-content-md-between">
-                    <!-- kalo aktif, pake btn-light -->
-                    <button class="btn btn-light">Semua</button>
-                    <button class="btn btn-outline-light">Deadline</button>
-                    <button class="btn btn-outline-light">Selesai</button>
-                    <button class="btn btn-outline-light">Belum</button>
-                    <button class="btn btn-outline-light">Assignment</button>
-                    <button class="btn btn-outline-light">Quiz</button>
-                </div>
+                <h5>Cari : </h5>
+                <input class="form-control form-control-lg bg-transparent text-secondary border-secondary mt-2" style="height: 50px; border-radius: 8px;" id="myInput" type="text" placeholder="Masukkan kata kunci">
             </section>
 
             <!-- section menu -->
-            <div class="row">
+            <div class="row" id="myTask">
                 <div class="col-md-8">            
                             <?php
                                 $query_task = $conn->query("SELECT * FROM college_task WHERE uid='$sesUid'");                         
@@ -179,6 +173,7 @@ if ( isset($_POST['submit']) ){
 
                 <div class="col-md-4">
                     <form action="task.php" method="POST" class="mt-3 position-fixed">
+                        <h5 class="text-light mb-3">Tambahkan: </h5>
                         <div class="mb-3">
                             <select id="typeTaskSelect" class="form-select text-secondary" name="id_jenis">
                                 <option value="1">Quiz</option>
@@ -237,6 +232,16 @@ if ( isset($_POST['submit']) ){
             closeBtn.addEventListener('click', () => {
                 sideMenu.style.display = 'none';
             })
+
+            // search
+            $(document).ready(function() {
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTask .card").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
         </script>
 </body>
 </html>
