@@ -110,7 +110,14 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                     <a href="task.php">
                         <div class="card card-1">
                             <div class="row card-body">
-                                <h1 class="col-3 card-title">5</h5>
+                                <h1 class="col-3 card-title">
+                                <?php
+                                $query = "SELECT * FROM college_task WHERE uid = '$sesUid' and status = 0";
+                                $result = mysqli_query($koneksi, $query) or die (mysql_error());
+                                $total_schedule = mysqli_num_rows($result);
+                                echo $total_schedule;
+                                    ?>
+                                    </h5>
                                     <div class="col card-content my-auto">
                                         <h3>Task</h3>
                                         <p>Belum terselesaikan</p>
@@ -121,7 +128,7 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                 </div>
                 <div class="col">
                 <?php
-                     echo '<a href="schedule.php?hari='.$hari_indo[$hari].'">'
+                    echo '<a href="schedule.php?hari='.$hari_indo[$hari].'">'
                     ?>
                         <div class="card card-2">
                             <div class="row card-body">
