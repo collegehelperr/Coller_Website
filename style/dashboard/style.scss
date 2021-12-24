@@ -81,7 +81,8 @@ p {
 }
 
 aside {
-    height: 100%;
+    min-height: 100vh;
+    max-height: fit-content;
     background: #141414 !important;
     // width: 350px;
     padding-top: 20px;
