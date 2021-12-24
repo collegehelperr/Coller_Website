@@ -27,7 +27,11 @@ $query_tdl2 = "SELECT * FROM college_todolist WHERE uid='$sesUid' AND status = 1
 $result_tdl2 = mysqli_query($koneksi, $query_tdl2);
 $total_schedule2 = mysqli_num_rows($result_tdl2);
 
-$persentase_bar = ($total_schedule2/$total_schedule) * 100;
+if($total_schedule != "0"){
+    $persentase_bar = ($total_schedule2/$total_schedule) * 100;
+} else {
+    $persentase_bar = 0;
+}
 ?>
 
 <?php
