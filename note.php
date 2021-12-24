@@ -40,6 +40,7 @@ $sesUid = $_SESSION['uid'];
     <link rel="stylesheet" href="style/notes/style_notes.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -111,11 +112,15 @@ $sesUid = $_SESSION['uid'];
                 </div>
             </div>
 
-            <!-- section informasi -->
+            <!-- section filter -->
+            <section class="section-filter text-light row">
+                <h5>Cari : </h5>
+                <input class="form-control form-control-lg bg-transparent text-secondary border-secondary mt-2" style="height: 50px; border-radius: 8px;" id="myInput" type="text" placeholder="Masukkan kata kunci">
+            </section>
 
 
             <!-- section menu -->
-            <div class="row mt-3">
+            <div class="row mt-3" id="myNote">
                 <div class="col-md-8">
                 <?php foreach ($college_notes as $note): ?>
                     <div class="card mb-3">
@@ -176,6 +181,16 @@ $sesUid = $_SESSION['uid'];
         closeBtn.addEventListener('click', () => {
             sideMenu.style.display = 'none';
         })
+
+        // search
+        $(document).ready(function() {
+                $("#myNote").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#myNote .card").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+            });
     </script>
 </body>
 </html>
