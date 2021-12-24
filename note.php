@@ -133,7 +133,7 @@ $sesUid = $_SESSION['uid'];
                                 </form>
                                 <a href="?id_note=<?php echo $note['id_note'] ?>">
                                     <h5 class="card-title float-none"><?php echo $note['judul_note'] ?></h5>
-                                </a><h6><?php echo date('d/m/Y H:i', strtotime($note['tgl_note'])) ?></h6>
+                                </a><h6><?php echo date('d/m/Y', strtotime($note['tgl_note'])) ?></h6>
                                 <p><?php echo $note['isi_note'] ?></p>
                             </div>
                         </div>
