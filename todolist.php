@@ -126,16 +126,16 @@ $connection = require_once 'db_conn.php';
                 <h3>Daftar To do List</h3>
                 <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
 
-                        <div class="card mb-3">
-                            <div class="card-body">
+                    <div class="card mb-3">
+                        <div class="card-body">
                             <div class="form-check mb-1">
-                            <img src="img/Close_square.png" class="float-end" alt="ic_close" id="<?php echo $todo['id_todolist']; ?>">
+                                <img src="img/Close_square.png" class="float-end" alt="ic_close" id="<?php echo $todo['id_todolist']; ?>">
                                 <?php if ($todo['status']) { ?>
-                                    
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>" checked>
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            <?php echo $todo['nama_todolist'] ?>
-                                        </label>
+
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>" checked>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <?php echo $todo['nama_todolist'] ?>
+                                    </label>
                                 <?php } else { ?>
 
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>">
@@ -144,11 +144,15 @@ $connection = require_once 'db_conn.php';
                                     </label>
 
                                 <?php } ?>
-                                <small>Created: 13/10/2021</small>
-                                </div>
+                                <?php
+                                $today = date(" j F Y ");
+                                echo '<small> Created : '.$today.'</small>'
+                                ?>
+
                             </div>
                         </div>
-                        
+                    </div>
+
 
                 <?php } ?>
             </div>
