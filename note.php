@@ -168,6 +168,7 @@ $sesUid = $_SESSION['uid'];
             </div>
         </main>
     </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script>
         // for mobile responsive
         const sideMenu = document.querySelector("aside");
