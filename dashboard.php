@@ -172,53 +172,28 @@ $connection = require_once 'db_conn.php';
                     </a>
                     <hr>
                     <div class="card-text">
-                        <div class="form-check">
+                        
+                        <?php
+                        $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_task WHERE uid='$sesUid' ");
+                        while ($row = mysqli_fetch_array($sql_kar)){
+                            echo '
+                            <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
+                                '.$row["id_jenis"].'
                             </label>
-                            <div class="bottom">
-                                <p class="name-task float-start">Laporan praktikum Workshop mobile</p>
-                                <p class="deadline float-sm-end">Dec 18, 2021</p>
-                            </div>
-                            <hr>
-                        </div>
+                                
+                                <div class="bottom">
+                                <p class="name-task float-start">'.$row["detail_task"].'</p>
+                                <p class="deadline float-sm-end">'.$row["tgl_ddline"].'</p>
+                                </div>
+                                <hr>
+                                </div>
+                                ';}
+                                
+                                ?>
+                            
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                            </label>
-                            <div class="bottom">
-                                <p class="name-task float-start">Laporan praktikum Workshop mobile</p>
-                                <p class="deadline float-sm-end">Dec 18, 2021</p>
-                            </div>
-                            <hr>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                            </label>
-                            <div class="bottom">
-                                <p class="name-task float-start">Laporan praktikum Workshop mobile</p>
-                                <p class="deadline float-sm-end">Dec 18, 2021</p>
-                            </div>
-                            <hr>
-                        </div>
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Assignment
-                            </label>
-                            <div class="bottom">
-                                <p class="name-task float-start">Laporan praktikum Workshop mobile</p>
-                                <p class="deadline float-sm-end">Dec 18, 2021</p>
-                            </div>
-                            <hr>
-                        </div>
                     </div>
                 </div>
             </div>
