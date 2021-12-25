@@ -262,7 +262,11 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                     <button id="menu-btn">
                     <span class="material-icons-sharp">menu</span>
                 </button>
-                    <p class="float-end">13 November 2021</p>
+                <?php
+                $today = date(" j F Y ");
+                echo 
+                '<p class="float-end d-md-none">'.$today.'</p>';
+                ?>
                 </div>
             </div>
         </main>

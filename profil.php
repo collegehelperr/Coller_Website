@@ -139,9 +139,13 @@ while ($row = mysqli_fetch_array($result)){
             <div class="right">
                 <div class="top">
                     <button id="menu-btn">
-                    <span class="material-icons-sharp">menu</span>
-                </button>
-                    <p class="float-end">13 November 2021</p>
+                        <span class="material-icons-sharp">menu</span>
+                    </button>
+                    <?php
+                    $today = date(" j F Y ");
+                    echo 
+                    '<p class="float-end d-md-none">'.$today.'</p>';
+                    ?>
                 </div>
             </div>
         </main>
