@@ -241,7 +241,7 @@ $connection = require_once 'db_conn.php';
                             "data-percent" bisa dibuat dinamis dengan php
                         -->
                         <a href="todolist.php">
-                            <div class="progress-bar mx-auto" data-percent="<?php  echo $persentase_bar; ?>" data-duration="1000" data-color="#ccc,#C957FF"></div>
+                            <div class="progress-bar mx-auto" data-percent="<?php  echo round($persentase_bar); ?>" data-duration="1000" data-color="#ccc,#C957FF"></div>
                         </a>
                         <h5 class="card-title-2 mt-4">To do list</h5>
                         <?php
