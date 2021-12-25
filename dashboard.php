@@ -180,13 +180,31 @@ $connection = require_once 'db_conn.php';
                                 $id_jenis = 'Quiz';
                             } else {
                                 $id_jenis = 'Assignment';
-                            }     
-                            echo '
+                            }  
+                            ?>
+                            
                             <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <?php
+                            if ($row["status"]){ 
+                                ?>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-task-id="<?php echo $row["id_task"];?>" checked>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                <!-- <?php echo $id_jenis;?> -->
+                                </label>
+
+                                <?php
+                                } else { 
+                                    ?>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-task-id="<?php echo $row["id_task"];?>">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <!-- <?php echo $id_jenis;?> -->
+                                    </label>
+                                    <?php
+                                }
+                                echo'
+                                <label class="form-check-label" for="flexCheckDefault">
                                 '.$id_jenis.'
-                            </label>
+                                </label>
                                 
                                 <div class="bottom">
                                 <p class="name-task float-start">'.$row["detail_task"].'</p>
@@ -195,7 +213,6 @@ $connection = require_once 'db_conn.php';
                                 <hr>
                                 </div>
                                 ';}
-                                
                                 ?>
                     </div>
                 </div>
@@ -293,11 +310,24 @@ $connection = require_once 'db_conn.php';
                             } else {
                                 h2.addClass('checked');
                             }
+
+                $.post('app/task_status.php', {
+                            id:id
+                        }, 
+                        (data) => {
+                            if (data != 'error') {
+                            const h2 = $(this).next();
+                            if (data === '1') {
+                                h2.removeClass('checked');
+                            } else {
+                                h2.addClass('checked');
+                            }
                         }
                     }
                 );
-            });
+            };
          });
+            });
     </script>
 </body>
 
