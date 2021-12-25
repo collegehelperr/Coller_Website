@@ -23,12 +23,18 @@ class Connection
 
     }
 
-    public function getNotes()
+    public function getNotes($sesUid)
     {
-        $statement = $this->pdo->prepare("SELECT * FROM college_notes ORDER BY tgl_note DESC");
+        // $statement = $this->pdo->prepare("SELECT * FROM college_notes ORDER BY tgl_note DESC");
+        // $statement->execute();
+        // return $statement->fetchAll(PDO::FETCH_ASSOC);
+        $statement = $this->pdo->prepare("SELECT * FROM college_notes WHERE `uid` = :sesUid ORDER BY tgl_note DESC");
+        $statement->bindValue('sesUid', $sesUid);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    
 
     public function addNote($note)
     {

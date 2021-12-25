@@ -7,7 +7,6 @@ require ('koneksi.php');
 
 /** @var Connection $connection */
 $connection = require_once 'pdo.php';
-$college_notes = $connection->getNotes();
 
 $currentNote = [
     'id_note' => '',
@@ -23,6 +22,7 @@ if(!isset($_SESSION['uid'])){
     header('Location: login.php');
 }
 $sesUid = $_SESSION['uid'];
+$college_notes = $connection->getNotes($sesUid);
 ?>
 <!DOCTYPE html>
 <html lang="en">
