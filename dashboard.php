@@ -172,10 +172,15 @@ $connection = require_once 'db_conn.php';
                     </a>
                     <hr>
                     <div class="card-text">
-                        
                         <?php
                         $sql_kar = mysqli_query($koneksi, "SELECT * FROM college_task WHERE uid='$sesUid' ");
-                        while ($row = mysqli_fetch_array($sql_kar)){
+                        while ($row = mysqli_fetch_array($sql_kar)){       
+                            $id_jenis = $row['id_jenis'];
+                            if($id_jenis == 1){
+                                $id_jenis = 'Quiz';
+                            } else {
+                                $id_jenis = 'Assignment';
+                            }     
                             echo '
                             <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -192,8 +197,6 @@ $connection = require_once 'db_conn.php';
                                 ';}
                                 
                                 ?>
-                            
-
                     </div>
                 </div>
             </div>
