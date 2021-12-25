@@ -90,7 +90,7 @@ $connection = require_once 'db_conn.php';
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="random_picker">
+                    <a href="random_picker.php">
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Random Picker</h3>
                     </a>
