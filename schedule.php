@@ -100,7 +100,7 @@ if ( isset($_POST['submit']) ){
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>
-                    <a href="#">
+                    <a href="informasi.html">
                         <span class="material-icons-sharp">info</span>
                         <h3>Informasi</h3>
                     </a>

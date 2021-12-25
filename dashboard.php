@@ -90,9 +90,9 @@ $connection = require_once 'db_conn.php';
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#">
+                    <a href="random_picker">
                         <span class="material-icons-sharp">pie_chart</span>
-                        <h3>Wheel Spinner</h3>
+                        <h3>Random Picker</h3>
                     </a>
                     <a href="college.php">
                         <span class="material-icons-sharp">school</span>
@@ -103,7 +103,7 @@ $connection = require_once 'db_conn.php';
                         <span class="material-icons-sharp">settings</span>
                         <h3>Edit Profil</h3>
                     </a>
-                    <a href="#">
+                    <a href="informasi.html">
                         <span class="material-icons-sharp">info</span>
                         <h3>Informasi</h3>
                     </a>
