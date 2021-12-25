@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_array($result)){
     <!--Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- CSS sidebar -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/profil/style_profil.css">
 
@@ -70,7 +70,7 @@ while ($row = mysqli_fetch_array($result)){
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="random_picker">
+                    <a href="random_picker.php">
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Random Picker</h3>
                     </a>

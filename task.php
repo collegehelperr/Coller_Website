@@ -36,7 +36,7 @@ if ( isset($_POST['submit']) ){
     <!--Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- CSS sidebar -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/task/style_task.css">
 
@@ -72,7 +72,7 @@ if ( isset($_POST['submit']) ){
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="random_picker">
+                    <a href="random_picker.php">
                         <span class="material-icons-sharp">pie_chart</span>
                         <h3>Random Picker</h3>
                     </a>

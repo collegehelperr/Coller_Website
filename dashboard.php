@@ -53,7 +53,7 @@ $connection = require_once 'db_conn.php';
     <!--Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -240,8 +240,9 @@ $connection = require_once 'db_conn.php';
                             Progress Bar 
                             "data-percent" bisa dibuat dinamis dengan php
                         -->
-                        <div class="progress-bar mx-auto" data-percent="<?php  echo $persentase_bar; ?>" data-duration="1000" data-color="#ccc,#C957FF"></div>
-                        
+                        <a href="todolist.php">
+                            <div class="progress-bar mx-auto" data-percent="<?php  echo $persentase_bar; ?>" data-duration="1000" data-color="#ccc,#C957FF"></div>
+                        </a>
                         <h5 class="card-title-2 mt-4">To do list</h5>
                         <?php
             $todos = $conn->query("SELECT * FROM college_todolist WHERE uid= $sesUid");

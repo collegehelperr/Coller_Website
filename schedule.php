@@ -53,7 +53,7 @@ if ( isset($_POST['submit']) ){
     <!--Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- CSS sidebar -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboards.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/schedule/style_schedule.css">
 

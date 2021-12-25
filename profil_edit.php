@@ -69,7 +69,7 @@ if(isset($_POST['update'])){
     <!--Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- CSS sidebar -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/profil-edit/style_profil_edit.css">
 

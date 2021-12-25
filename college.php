@@ -40,7 +40,7 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
     <!--Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- CSS sidebar -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/college/style_college.css">
 
@@ -247,7 +247,7 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="#">
+                            <a href="todolist.php">
                                 <p>To do list</p>
                                 <img src="img/ic_todolist_mobile.png" class="mx-auto" alt="todolist">
                             </a>

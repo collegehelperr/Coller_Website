@@ -41,7 +41,7 @@ while ($row = mysqli_fetch_array($result)){
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- CSS sidebar -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/random-picker/style_random_picker.css">
 </head>

@@ -29,7 +29,7 @@ $connection = require_once 'db_conn.php';
     <!--Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <!-- CSS sidebar -->
-    <link rel="stylesheet" href="style/dashboard/style.css">
+    <link rel="stylesheet" href="style/dashboard/dashboard.css">
     <!-- CSS profil -->
     <link rel="stylesheet" href="style/todolist/todolist.css">
 
@@ -63,9 +63,9 @@ $connection = require_once 'db_conn.php';
                         <span class="material-icons-sharp">grid_view</span>
                         <h3>Dashboard</h3>
                     </a>
-                    <a href="#">
+                    <a href="random_picker.php">
                         <span class="material-icons-sharp">pie_chart</span>
-                        <h3>Wheel Spinner</h3>
+                        <h3>Random Picker</h3>
                     </a>
                     <a href="college.html" class="active">
                         <span class="material-icons-sharp">school</span>
