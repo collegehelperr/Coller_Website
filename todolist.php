@@ -124,37 +124,36 @@ $connection = require_once 'db_conn.php';
             ?>
             <div class="row">
                 <h3>Daftar To do List</h3>
-                <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
-
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="form-check mb-1">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                            <?php while ($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
+                                <div class="form-check mb-1">
                                 <img src="img/Close_square.png" class="float-end" alt="ic_close" id="<?php echo $todo['id_todolist']; ?>">
-                                <?php if ($todo['status']) { ?>
+                                    <?php if ($todo['status']) { ?>
+                                        
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>" checked>
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                <?php echo $todo['nama_todolist'] ?>
+                                            </label>
+                                    <?php } else { ?>
 
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>" checked>
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        <?php echo $todo['nama_todolist'] ?>
-                                    </label>
-                                <?php } else { ?>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            <?php echo $todo['nama_todolist'] ?>
+                                        </label>
 
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" data-todo-id="<?php echo $todo['id_todolist']; ?>">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        <?php echo $todo['nama_todolist'] ?>
-                                    </label>
-
-                                <?php } ?>
-                                <?php
-                                $today = date(" j F Y ");
-                                echo '<small> Created : '.$today.'</small>'
-                                ?>
-
+                                        <?php } ?>
+                                        <?php
+                                            $today = date(" j F Y ");
+                                            echo 
+                                            '<small class="d-block ms-3 mb-4">Created: '.$today.'</small>';
+                                        ?>
+                                </div>
+                                
+                        <?php } ?>
                             </div>
                         </div>
-                    </div>
-
-
-                <?php } ?>
+                    
             </div>
 
 
