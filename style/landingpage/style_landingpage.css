@@ -225,4 +225,89 @@ footer .copyright p {
 footer .copyright span {
   color: #FF57BC;
 }
+
+@media screen and (max-width: 768px) {
+  html {
+    width: 100% !important;
+  }
+  .navbar-brand img {
+    width: 60px;
+  }
+  .section-header h1 {
+    font-size: 50px !important;
+    line-height: 60px !important;
+  }
+  .section-header h5 {
+    font-size: 16px !important;
+  }
+  .section-header .img-header {
+    display: none;
+  }
+  .section-features {
+    width: 100%;
+  }
+  .section-features .features-title {
+    width: 100%;
+  }
+  .section-features .features-title h2 {
+    font-size: 50px !important;
+    line-height: 50px;
+  }
+  .section-features .features-title h4 {
+    font-size: 16px;
+  }
+  .section-features img {
+    border-radius: 18px;
+  }
+  .features-mobile {
+    width: 100%;
+    text-align: center !important;
+  }
+  .features-mobile h2 {
+    font-size: 50px !important;
+  }
+  .features-mobile img {
+    width: 300px;
+    float: none !important;
+    margin-top: 50px;
+  }
+  .section-download {
+    margin-top: 200px;
+    background: #111111;
+  }
+  .section-download h2 {
+    font-size: 50px;
+    line-height: 60px;
+  }
+  .section-download h5 {
+    font-size: 16px;
+  }
+  .section-download .button-menu {
+    margin-top: -60px;
+  }
+  .section-download .button-menu img {
+    width: 224px;
+  }
+  .section-download .button-menu .btn-primary {
+    margin-top: -90px;
+    width: 196px !important;
+    border-radius: 11px !important;
+  }
+  footer {
+    padding: 30px 0;
+  }
+  footer a {
+    font-size: 14px;
+  }
+  footer h3 {
+    font-size: 18px;
+  }
+  footer .copyright {
+    -ms-flex-item-align: end !important;
+        align-self: flex-end !important;
+  }
+  footer .copyright p {
+    font-size: 10px;
+  }
+}
 /*# sourceMappingURL=style_landingpage.css.map */
