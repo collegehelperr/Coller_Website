@@ -185,7 +185,7 @@ $connection = require_once 'db_conn.php';
                             <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
-                                '.$row["id_jenis"].'
+                                '.$id_jenis.'
                             </label>
                                 
                                 <div class="bottom">
