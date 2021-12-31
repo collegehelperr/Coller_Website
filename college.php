@@ -241,7 +241,7 @@ $hari_indo = array('Monday' => 'Senin', 'Tuesday' => 'Selasa', 'Wednesday' => 'R
                             </a>
                         </div>
                         <div class="col text-center">
-                            <a href="task.html">
+                            <a href="task.php">
                                 <p>Task</p>
                                 <img src="img/ic_task_mobile.png" class="mx-auto" alt="task">
                             </a>
