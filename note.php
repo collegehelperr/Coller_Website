@@ -50,20 +50,19 @@ $college_notes = $connection->getNotes($sesUid);
     <div class="container-1">
         <aside>
             <div class="pos">
-            <div class="top">
-                <?php
-            $sql_kar = mysqli_query($koneksi, "SELECT * FROM user WHERE uid = '$sesUid' ");
-            while ($row = mysqli_fetch_array($sql_kar)){
-                echo '<div class="profile">
-                <img src="' . $row["profile_img"] . '" alt="thumb profile">
-                <div class="title align-self-center">
-                <h2>'. $row["nama_lengkap"] .'</h2>
-                <p>'. $row["email"] .'</p>
-                </div>
-                <!-- <p>arln_coy@gmail.com</p> -->
-            </div>';
-            }
-            ?>
+                <div class="top">
+                    <?php
+                    $sql_kar = mysqli_query($koneksi, "SELECT * FROM user WHERE uid = '$sesUid' ");
+                    while ($row = mysqli_fetch_array($sql_kar)){
+                    echo '<div class="profile">
+                        <img src="' . $row["profile_img"] . '" alt="thumb profile">
+                        <div class="title align-self-center">
+                            <h2>'. $row["nama_lengkap"] .'</h2>
+                            <p>'. $row["email"] .'</p>
+                        </div>
+                    </div>';
+                    }
+                    ?>
                     <div class="close" id="close-btn">
                         <span class="material-icons-sharp">close</span>
                     </div>
@@ -116,7 +115,7 @@ $college_notes = $connection->getNotes($sesUid);
             </div>
 
             <!-- section filter -->
-            <section class="section-filter text-light row">
+            <section class="section-filter text-light">
                 <h5>Cari : </h5>
                 <input class="form-control form-control-lg bg-transparent text-secondary border-secondary mt-2" style="height: 50px; border-radius: 8px;" id="myInput" type="text" placeholder="Masukkan kata kunci">
             </section>
@@ -128,21 +127,22 @@ $college_notes = $connection->getNotes($sesUid);
                 <?php foreach ($college_notes as $note): ?>
                     <div class="card mb-3">
                         <div class="card-body">
-                                <form action="delete_notes.php" class="float-end" method="post">
-                                    <input type="hidden" name="id_note" value="<?php echo $note['id_note'] ?>">
-                                    <button class="btn bg-transparant float-end">
-                                        <img src="img/Close_square.png" alt="ic_close">
-                                    </button>
-                                </form>
-                                <a href="?id_note=<?php echo $note['id_note'] ?>">
+                            <form action="delete_notes.php" class="float-end" method="post">
+                                <input type="hidden" name="id_note" value="<?php echo $note['id_note'] ?>">
+                                <button class="btn bg-transparant float-end">
+                                    <img src="img/Close_square.png" alt="ic_close">
+                                </button>
+                            </form>
+                            <a href="?id_note=<?php echo $note['id_note'] ?>">
                                     <h5 class="card-title float-none"><?php echo $note['judul_note'] ?></h5>
-                                </a><h6><?php echo date('d/m/Y', strtotime($note['tgl_note'])) ?></h6>
-                                <p><?php echo $note['isi_note'] ?></p>
-                            </div>
+                            </a> 
+                            <h6><?php echo date('d/m/Y', strtotime($note['tgl_note'])) ?></h6>
+                            <p><?php echo $note['isi_note'] ?></p>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 create-note">
                     <form action="create_notes.php" class="mt-3 position-fixed" method="post">
                         <input type="hidden" name="id_note" value="<?php echo $currentNote['id_note'] ?>">
                         <input type="text" name="judul_note" class="form-control text-secondary" autocomplete="off" value="<?php echo $currentNote['judul_note'] ?>" placeholder="Judul Note">
@@ -160,6 +160,7 @@ $college_notes = $connection->getNotes($sesUid);
                     </form>
                 </div>
             </div>
+
             <!-- for mobile -->
             <div class="right">
                 <div class="top">
@@ -167,10 +168,10 @@ $college_notes = $connection->getNotes($sesUid);
                         <span class="material-icons-sharp">menu</span>
                     </button>
                     <?php
-                $today = date(" j F Y ");
-                echo 
-                '<p class="float-end d-md-none">'.$today.'</p>';
-                ?>
+                    $today = date(" j F Y ");
+                    echo 
+                    '<p class="float-end d-md-none">'.$today.'</p>';
+                    ?>
                 </div>
             </div>
         </main>

@@ -101,8 +101,8 @@ while ($row = mysqli_fetch_array($result)){
         <!-- main content -->
         <main>
             <div class="heading">
-                <h1 class="main-title">College Management <span>.</span></h1>
-                <p>Membantumu dalam mengelola urusan perkuliahan</p>
+                <h1 class="main-title">Random Picker <span>.</span></h1>
+                <p>Membantumu dalam membuat pilihan acak</p>
             </div>
 
             <div class="form my-5">
